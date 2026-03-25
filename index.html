@@ -1,363 +1,265 @@
 <!doctype html>
 <html lang="pt-BR">
-
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="Antecipe seu Saque Aniversário FGTS com a Poder Financeiro. Dinheiro na conta em até 24h, 100% digital e seguro. Sem parcelas mensais. Simule grátis!">
+    <meta name="description" content="Antecipe seu Saque Aniversário FGTS com Solange Ladeira. Dinheiro na conta rápido, seguro e 100% digital.">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <title>Poder Financeiro | Antecipação FGTS Saque Aniversário - Dinheiro Rápido</title>
+    <title>Poder Financeiro | Antecipação FGTS com Solange Ladeira</title>
 
     <style>
-        /* CSS Interno para Customizações Específicas (Seniority: Manter o CSS mínimo e usar utilitários BS5) */
+      /* CSS Interno Focado em Conversão e Performance */
+      :root {
+        --cor-destaque: #25D366; /* Verde WhatsApp / Sucesso */
+        --cor-fundo-escuro: #111827; /* Dark mais profundo e elegante */
+      }
 
-        :root {
-            --bs-primary: #0d6efd;
-            /* Azul Profissional */
-            --bs-success: #198754;
-            /* Verde Dinheiro/Conversão */
-        }
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        padding-top: 70px;
+        -webkit-font-smoothing: antialiased;
+      }
 
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            padding-top: 70px;
-            /* Offset para a navbar fixa */
-            overflow-x: hidden;
-        }
+      /* Hero Section com contraste máximo */
+      .hero-section {
+        background-color: var(--cor-fundo-escuro);
+        background-image: linear-gradient(to right, #111827, #1f2937);
+      }
 
-        /* Hero Section Custom */
-        .hero-jumbotron {
-            background: linear-gradient(135deg, #1a1e21 0%, #212529 100%);
-            padding: 4rem 1rem;
-        }
+      .text-destaque {
+        color: var(--cor-destaque);
+      }
 
-        /* Estilização dos Cards de Vantagens */
-        .feat-card {
-            border: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: #fff;
-        }
+      /* Cards com efeito de flutuação suave para escaneabilidade */
+      .card-beneficio {
+        border: none;
+        border-radius: 12px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      
+      .card-beneficio:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.15)!important;
+      }
 
-        .feat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
-        }
+      .icon-wrapper {
+        width: 64px;
+        height: 64px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        background-color: rgba(37, 211, 102, 0.1);
+        color: var(--cor-destaque);
+        margin-bottom: 1.5rem;
+      }
 
-        .icon-box {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-        }
+      /* Ajustes de tipografia Copywriting */
+      .headline {
+        letter-spacing: -1px;
+        line-height: 1.2;
+      }
+      
+      .quadro-futuro {
+        background-color: #f8f9fa;
+        border-left: 5px solid var(--cor-destaque);
+      }
 
-        /* Carrossel de Prova Social */
-        .carousel-item {
-            min-height: 250px;
-        }
-
-        .testimonial-img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Ajustes finos de UX */
-        .form-floating>label {
-            color: #6c757d;
-        }
-
-        /* Garantir que o botão d-grid ocupe 100% em mobile, mas não fique gigante em desktop */
-        @media (min-width: 768px) {
-            .btn-lg-cq {
-                padding-left: 3rem;
-                padding-right: 3rem;
-                width: auto !important;
-                margin: 0 auto;
-            }
-        }
+      /* Botões de Ação Pulsação */
+      .btn-conversao {
+        background-color: var(--cor-destaque);
+        border: none;
+        box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+        transition: transform 0.2s;
+      }
+      .btn-conversao:hover {
+        background-color: #1ea952;
+        transform: scale(1.02);
+      }
+      
+      /* Botão Flutuante do WhatsApp */
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+      }
+      .whatsapp-float:hover {
+        color: #fff;
+        background-color: #1ea952;
+      }
     </style>
-</head>
+  </head>
+  <body>
 
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <i class="bi bi-cash-coin text-success fs-3 me-2"></i>
-                <span class="fw-bold text-dark h4 mb-0">Poder <span class="text-primary">Financeiro</span></span>
-            </a>
-
-            <div class="d-flex ms-auto">
-                <a href="#simulacao" class="btn btn-primary btn-sm px-3 rounded-pill fw-bold">
-                    Simular Agora
-                </a>
-            </div>
-        </div>
+    <nav class="navbar navbar-light bg-white fixed-top shadow-sm py-3">
+      <div class="container d-flex justify-content-between align-items-center">
+        <span class="navbar-brand mb-0 h1 d-flex align-items-center">
+          <i class="bi bi-shield-check text-destaque fs-2 me-2"></i>
+          <span class="fw-bolder">Poder <span class="text-primary">Financeiro</span></span>
+        </span>
+        <span class="text-muted small d-none d-md-block">Consultora Autorizada: <strong>Solange Ladeira</strong></span>
+      </div>
     </nav>
 
-    <header class="hero-jumbotron text-light text-center text-md-start">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <h1 class="display-4 fw-extrabold mb-3">
-                        Antecipe até 10 anos do seu <span class="text-success">Saque Aniversário FGTS</span> e receba em
-                        24h.
-                    </h1>
-                    <p class="lead mb-4 text-gray-300">
-                        Use o saldo parado do seu FGTS para quitar dívidas, investir ou realizar sonhos. <strong>Sem
-                            pagar parcelas mensais</strong>, o desconto é direto no saldo. Rápido, 100% digital e sem
-                        burocracia.
-                    </p>
-                    <div class="d-grid d-md-flex gap-3 justify-content-md-start mb-5">
-                        <a href="#simulacao" class="btn btn-success btn-lg px-5 fw-bold rounded-pill text-white shadow">
-                            Quero meu respiro financeiro
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-5 d-none d-lg-block text-center">
-                    <i class="bi bi-shield-check text-success" style="font-size: 15rem; opacity: 0.8;"></i>
-                </div>
+    <section class="hero-section text-white py-5 py-lg-5">
+      <div class="container py-5">
+        <div class="row justify-content-center text-center text-md-start align-items-center">
+          <div class="col-lg-8">
+            <span class="badge bg-success bg-opacity-25 text-success px-3 py-2 rounded-pill mb-3 fw-bold text-uppercase tracking-wide">Dinheiro na conta em até 24h</span>
+            <h1 class="display-4 fw-extrabold headline mb-4 text-white">
+              Receba antecipadamente o que é seu: <span class="text-destaque">Antecipe até 12 parcelas</span> do seu FGTS hoje mesmo.
+            </h1>
+            <p class="lead mb-5 text-gray-300 fs-4 fw-light opacity-75">
+              Transforme o saldo retido do seu FGTS em dinheiro livre. Sem parcelas mensais, sem comprometer sua renda e com as melhores taxas do mercado.
+            </p>
+            
+            <div class="d-grid gap-2 col-12 col-md-8 mx-md-0 mb-3">
+              <a href="https://wa.me/5521992279948?text=Ol%C3%A1,%20Solange!%20Quero%20liberar%20meu%20FGTS%20agora." target="_blank" class="btn btn-success btn-lg py-3 fs-5 fw-bold btn-conversao rounded-pill">
+                <i class="bi bi-whatsapp me-2"></i> Falar com Especialista Agora
+              </a>
             </div>
+            <p class="small text-muted"><i class="bi bi-lock-fill me-1"></i> Ambiente 100% seguro. Análise rápida e sem compromisso.</p>
+          </div>
         </div>
-    </header>
-
-    <section id="vantagens" class="py-5 bg-light">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold h1">Por que escolher a Poder Financeiro?</h2>
-                <p class="lead text-muted">Aprovamos mais, pagamos mais rápido e somos transparentes.</p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card feat-card h-100 p-4 shadow-sm text-center">
-                        <div class="icon-box bg-primary bg-opacity-10 text-primary mx-auto mb-4">
-                            <i class="bi bi-headset fs-2"></i>
-                        </div>
-                        <div class="card-body p-0">
-                            <h5 class="card-title fw-bold h4">Atendimento Premium</h5>
-                            <p class="card-text text-muted">Nada de robôs confusos. Você fala com humanos de verdade
-                                prontos para resolver sua antecipação com prioridade total.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card feat-card h-100 p-4 shadow-sm text-center">
-                        <div class="icon-box bg-success bg-opacity-10 text-success mx-auto mb-4">
-                            <i class="bi bi-phone fs-2"></i>
-                        </div>
-                        <div class="card-body p-0">
-                            <h5 class="card-title fw-bold h4">100% Digital e Seguro</h5>
-                            <p class="card-text text-muted">Faça tudo pelo celular, de onde estiver. Assinatura digital
-                                com segurança bancária. Dinheiro na conta sem sair de casa.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card feat-card h-100 p-4 shadow-sm text-center">
-                        <div class="icon-box bg-warning bg-opacity-10 text-warning mx-auto mb-4">
-                            <i class="bi bi-star-fill fs-2"></i>
-                        </div>
-                        <div class="card-body p-0">
-                            <h5 class="card-title fw-bold h4">Especialistas em Crédito</h5>
-                            <p class="card-text text-muted">Nossa equipe garante a melhor taxa e as melhores condições,
-                                maximizando o valor que você pode antecipar do seu saldo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <section id="simulacao" class="py-5 bg-white">
-        <div class="container py-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center mb-5">
-                    <span class="badge bg-success mb-2 rounded-pill px-3 py-2">Grátis e sem compromisso</span>
-                    <h2 class="fw-bold h1">Descubra agora quanto você pode sacar</h2>
-                    <p class="lead text-muted">Preencha os dados abaixo e receba sua simulação personalizada em minutos
-                        no WhatsApp. É rápido e não afeta seu score.</p>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-8">
-                    <form action="#" method="POST" class="shadow-lg p-4 p-md-5 rounded-3 bg-white border">
-
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nome" name="nome"
-                                placeholder="Seu Nome Completo" required>
-                            <label for="nome"><i class="bi bi-person me-2"></i>Nome Completo</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00"
-                                required inputmode="numeric">
-                            <label for="cpf"><i class="bi bi-card-text me-2"></i>Seu CPF</label>
-                            <div class="form-text text-start ms-1">Necessário para consultar o saldo FGTS.</div>
-                        </div>
-
-                        <div class="form-floating mb-4">
-                            <input type="tel" class="form-control" id="celular" name="celular"
-                                placeholder="(00) 00000-0000" required inputmode="tel">
-                            <label for="celular"><i class="bi bi-whatsapp me-2"></i>WhatsApp com DDD</label>
-                            <div class="form-text text-start ms-1">Enviaremos o resultado por aqui.</div>
-                        </div>
-
-                        <div class="form-check text-start mb-4">
-                            <input class="form-check-input" type="checkbox" value="" id="termos" required check>
-                            <label class="form-check-label text-muted small" for="termos">
-                                Autorizo a Poder Financeiro a consultar meu saldo FGTS para fins de simulação e entrar
-                                em contato via WhatsApp.
-                            </label>
-                        </div>
-
-                        <div class="d-grid col-12 mx-auto">
-                            <button type="submit"
-                                class="btn btn-success btn-lg fw-bold rounded-pill text-white shadow btn-lg-cq">
-                                Quero minha simulação agora! <i class="bi bi-arrow-right ms-2"></i>
-                            </button>
-                        </div>
-
-                        <div class="text-center mt-3 text-muted small">
-                            <i class="bi bi-lock-fill me-1"></i> Seus dados estão 100% seguros conosco.
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <section class="py-5 bg-light">
+      <div class="container py-5">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold h1 text-dark">O crédito mais inteligente que você pode fazer</h2>
+          <p class="lead text-muted">Aproveite as vantagens de antecipar com a Poder Financeiro.</p>
         </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card card-beneficio h-100 p-4 shadow-sm">
+              <div class="card-body text-center">
+                <div class="icon-wrapper">
+                  <i class="bi bi-person-hearts fs-1"></i>
+                </div>
+                <h3 class="h4 fw-bold text-dark">Atendimento Premium</h3>
+                <p class="text-muted">Esqueça robôs e menus infinitos. Você será atendido pessoalmente pela Solange, especialista dedicada a encontrar a melhor condição para o seu perfil.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card card-beneficio h-100 p-4 shadow-sm">
+              <div class="card-body text-center">
+                <div class="icon-wrapper">
+                  <i class="bi bi-check2-circle fs-1"></i>
+                </div>
+                <h3 class="h4 fw-bold text-dark">Sem Burocracia</h3>
+                <p class="text-muted">Está negativado? Não tem problema. Como a garantia é o seu próprio saldo do FGTS, a aprovação é facilitada e não compromete seu orçamento mensal.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card card-beneficio h-100 p-4 shadow-sm">
+              <div class="card-body text-center">
+                <div class="icon-wrapper">
+                  <i class="bi bi-phone-vibrate fs-1"></i>
+                </div>
+                <h3 class="h4 fw-bold text-dark">Experiência 100% Digital</h3>
+                <p class="text-muted">Resolva tudo pelo seu celular. Desde a simulação até a assinatura do contrato. Receba o dinheiro na sua conta bancária sem sair de casa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="depoimentos" class="py-5 bg-light">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold h1">Quem já antecipou, aprova</h2>
-                <p class="lead text-muted">Ajudamos milhares de brasileiros a saírem do aperto.</p>
+    <section class="py-5 bg-white">
+      <div class="container py-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="quadro-futuro p-5 rounded-3 shadow-sm">
+              <h2 class="fw-bold h2 mb-4 text-dark">Chegou a hora de ter o seu respiro financeiro.</h2>
+              <p class="fs-5 text-secondary mb-4">
+                Imagine a tranquilidade de acordar amanhã sabendo que aquela dívida urgente foi quitada. Imagine ter o dinheiro na mão para investir no seu próprio negócio, reformar sua casa ou lidar com um imprevisto familiar, <strong>sem criar novos boletos</strong>.
+              </p>
+              <p class="fs-5 text-secondary">
+                O dinheiro do FGTS é seu por direito. Não deixe ele parado rendendo quase nada enquanto você passa aperto. A Solange Ladeira está pronta para fazer esse dinheiro chegar até você hoje.
+              </p>
             </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div id="carouselTestimonials" class="carousel slide shadow rounded-3 bg-white p-5"
-                        data-bs-ride="carousel">
-                        <div class="carousel-inner text-center">
-
-                            <div class="carousel-item active">
-                                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="testimonial-img mb-4"
-                                    alt="Cliente Maria Silva">
-                                <figure class="px-md-5">
-                                    <blockquote class="blockquote">
-                                        <p class="lead mb-4 fs-5 text-dark">"Estava com o nome sujo e precisava quitar
-                                            uma dívida urgente. O pessoal da Poder Financeiro foi incrível. Fiz a
-                                            simulação de manhã e no fim do dia o dinheiro já estava na minha conta. Sem
-                                            pagar boleto mensal, direto do FGTS. Recomendo muito!"</p>
-                                    </blockquote>
-                                    <figcaption class="blockquote-footer fw-bold h6 text-primary">
-                                        Maria Silva <cite title="Source Title">| São Paulo - SP</cite>
-                                    </figcaption>
-                                </figure>
-                            </div>
-
-                            <div class="carousel-item">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="testimonial-img mb-4"
-                                    alt="Cliente João Pereira">
-                                <figure class="px-md-5">
-                                    <blockquote class="blockquote">
-                                        <p class="lead mb-4 fs-5 text-dark">"Processo super rápido. Fiz tudo pelo
-                                            WhatsApp, mandei a documentação e assinei o contrato pelo celular. Dinheiro
-                                            na conta em menos de 24 horas. Equipe muito atenciosa e transparente."</p>
-                                    </blockquote>
-                                    <figcaption class="blockquote-footer fw-bold h6 text-primary">
-                                        João Pereira <cite title="Source Title">| Rio de Janeiro - RJ</cite>
-                                    </figcaption>
-                                </figure>
-                            </div>
-
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselTestimonials"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
-                            <span class="visually-hidden">Anterior</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselTestimonials"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
-                            <span class="visually-hidden">Próximo</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <footer class="py-5 bg-dark text-light">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
-                    <a class="d-flex align-items-center justify-content-center justify-content-md-start mb-3 text-decoration-none"
-                        href="#">
-                        <i class="bi bi-cash-coin text-success fs-3 me-2"></i>
-                        <span class="fw-bold text-white h4 mb-0">Poder <span
-                                class="text-primary">Financeiro</span></span>
-                    </a>
-                    <p class="text-muted small mb-0">&copy; 2026 Poder Financeiro LTDA. Todos os direitos reservados.
-                    </p>
-                    <p class="text-muted small">CNPJ: 00.000.000/0001-00</p>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="alert alert-warning border-0 bg-warning bg-opacity-10 text-warning-emphasis small d-flex align-items-center"
-                        role="alert">
-                        <i class="bi bi-exclamation-triangle-fill fs-4 me-3"></i>
-                        <div>
-                            <strong>Atenção / Cuidado com Golpes:</strong> A Poder Financeiro <u>não solicita taxas
-                                antecipadas</u>, depósitos ou pagamentos de "seguros" para liberação de crédito. Nossa
-                            antecipação é cobrada exclusivamente através do desconto anual no seu saldo FGTS. Denuncie
-                            tentativas de fraude.
-                        </div>
-                    </div>
-                </div>
+    <section class="py-5 hero-section text-center text-white">
+      <div class="container py-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="display-5 fw-bold mb-4">Você tem 1 minuto para mudar sua realidade financeira?</h2>
+            <p class="lead mb-5 opacity-75">
+              É só o que você precisa. Clique no botão abaixo, me mande um "Olá" no WhatsApp e eu farei a análise do seu saldo em instantes. Sem compromisso e sem enrolação.
+            </p>
+            
+            <div class="d-grid gap-2 col-12 col-md-8 mx-auto">
+              <a href="https://wa.me/5521992279948?text=Ol%C3%A1,%20Solange!%20Li%20a%20p%C3%A1gina%20e%20quero%20liberar%20meu%20FGTS%20agora." target="_blank" class="btn btn-success btn-lg py-4 fs-4 fw-bold btn-conversao rounded-3 shadow-lg">
+                Liberar meu FGTS pelo WhatsApp <i class="bi bi-arrow-right-circle ms-2"></i>
+              </a>
             </div>
-
-            <hr class="my-4 border-secondary opacity-25">
-
-            <div class="row">
-                <div class="col-12 text-center text-muted small">
-                    <p>O prazo de 24h para recebimento depende da aprovação da Caixa Econômica Federal e das condições
-                        cadastrais. Taxas de juros aplicáveis conforme a tabela vigente. Sujeito à análise de crédito.
-                    </p>
-                </div>
-            </div>
+            <p class="mt-4 small text-gray-400">Atendimento humanizado: +55 21 99227-9948</p>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <footer class="bg-black text-light py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <div class="col-md-5 mb-4 mb-md-0">
+            <h5 class="fw-bold mb-3 d-flex align-items-center">
+              <i class="bi bi-shield-check text-success fs-3 me-2"></i> Poder Financeiro
+            </h5>
+            <p class="text-muted small">
+              Solange Ladeira dos Santos<br>
+              Consultora e Afiliada Autorizada<br>
+              WhatsApp: (21) 99227-9948
+            </p>
+            <p class="text-muted small mb-0">&copy; 2026. Todos os direitos reservados.</p>
+          </div>
+
+          <div class="col-md-7">
+            <div class="alert alert-dark border border-secondary bg-transparent text-light mb-0 d-flex" role="alert">
+              <i class="bi bi-exclamation-triangle-fill text-warning fs-3 me-3 mt-1"></i>
+              <div class="small text-muted">
+                <strong class="text-warning">CUIDADO COM GOLPES:</strong> Nunca solicitamos depósitos, Pix ou transferências antecipadas para liberação de qualquer tipo de crédito. O desconto do Saque Aniversário é feito diretamente no seu saldo do FGTS pela Caixa Econômica Federal.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+    <a href="https://wa.me/5521992279948?text=Ol%C3%A1,%20Solange!%20Quero%20antecipar%20meu%20FGTS." target="_blank" class="whatsapp-float shadow-lg" title="Falar com a Solange no WhatsApp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-</body>
-
+  </body>
 </html>
