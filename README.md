@@ -3,7 +3,7 @@ Este projeto consiste em uma **Landing Page de alta conversão** desenvolvida pa
 Abaixo, os detalhes da descrição para o seu repositório:
 
 ### Sobre o Projeto
-O sistema foi projetado para oferecer uma experiência **100% digital** e simplificada, permitindo que trabalhadores que optaram pelo Saque-Aniversário antecipem até **12 parcelas** do seu saldo. O foco principal é ajudar as famílias brasileiras a encontrarem um "respiro" financeiro e saírem do aperto através da liberação de crédito rápido e sem burocracia.
+O sistema foi projetado para oferecer uma experiência **100% digital** e simplificada, permitindo que trabalhadores que optaram pelo Saque-Aniversário antecipem até **5 parcelas** do seu saldo. O foco principal é ajudar as famílias brasileiras a encontrarem um "respiro" financeiro e saírem do aperto através da liberação de crédito rápido e sem burocracia.
 
 ### Principais Funcionalidades e Metodologias
 *   **Arquitetura de Persuasão:** O conteúdo foi estruturado com base no **Modelo AIDA** (Atenção, Interesse, Desejo e Ação) e na técnica dos **4 Us** (Útil, Urgente, Único e Ultraespecífico) para garantir headlines magnéticas e chamadas para ação (CTAs) poderosas.
