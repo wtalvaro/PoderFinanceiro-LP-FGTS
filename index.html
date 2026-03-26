@@ -3,184 +3,177 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Antecipe seu Saque Aniversário FGTS. Dinheiro na conta rápido, seguro e 100% digital.">
+    <meta name="description" content="Atenção: Novas regras do FGTS vão limitar seu saque. Fale com Solange Ladeira, consultora da Poder Financeiro, e antecipe até 5 parcelas antes do prazo final.">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <title>Poder Financeiro | Antecipação FGTS com Solange Ladeira</title>
+    <title>ALERTA: Mudanças no Saque-Aniversário FGTS | Poder Financeiro</title>
 
     <style>
-      /* CSS Interno Focado em Conversão e Performance */
       :root {
-        --cor-destaque: #25D366; /* Verde WhatsApp / Sucesso */
-        --cor-fundo-escuro: #111827; /* Dark mais profundo e elegante */
+        --cor-whatsapp: #25D366;
+        --cor-whatsapp-hover: #1EBE5D;
       }
-
+      
       body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        padding-top: 70px;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      /* Hero Section com contraste máximo */
-      .hero-section {
-        background-color: var(--cor-fundo-escuro);
-        background-image: linear-gradient(to right, #111827, #1f2937);
-      }
-
-      .text-destaque {
-        color: var(--cor-destaque);
-      }
-
-      /* Cards com efeito de flutuação suave para escaneabilidade */
-      .card-beneficio {
-        border: none;
-        border-radius: 12px;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-      
-      .card-beneficio:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 1rem 3rem rgba(0,0,0,.15)!important;
-      }
-
-      .icon-wrapper {
-        width: 64px;
-        height: 64px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 16px;
-        background-color: rgba(37, 211, 102, 0.1);
-        color: var(--cor-destaque);
-        margin-bottom: 1.5rem;
-      }
-
-      /* Ajustes de tipografia Copywriting */
-      .headline {
-        letter-spacing: -1px;
-        line-height: 1.2;
-      }
-      
-      .quadro-futuro {
+        font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        padding-top: 76px; /* Espaço para a navbar fixa */
         background-color: #f8f9fa;
-        border-left: 5px solid var(--cor-destaque);
       }
 
-      /* Botões de Ação Pulsação */
-      .btn-conversao {
-        background-color: var(--cor-destaque);
+      /* Hero Section com alerta */
+      .hero-urgencia {
+        background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+        border-bottom: 5px solid #dc3545; /* Linha de urgência */
+      }
+
+      .headline-texto {
+        line-height: 1.2;
+        letter-spacing: -1px;
+      }
+
+      /* Estilo dos Cards */
+      .card-regra {
         border: none;
-        box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
-        transition: transform 0.2s;
+        border-left: 4px solid var(--cor-whatsapp);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .card-regra:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+      }
+
+      /* Botões de Conversão */
+      .btn-conversao {
+        background-color: var(--cor-whatsapp);
+        border-color: var(--cor-whatsapp);
+        color: white;
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        transition: all 0.3s;
       }
       .btn-conversao:hover {
-        background-color: #1ea952;
+        background-color: var(--cor-whatsapp-hover);
+        border-color: var(--cor-whatsapp-hover);
+        color: white;
         transform: scale(1.02);
       }
-      
+
       /* Botão Flutuante do WhatsApp */
       .whatsapp-float {
         position: fixed;
-        width: 60px;
-        height: 60px;
-        bottom: 20px;
-        right: 20px;
-        background-color: #25d366;
+        width: 65px;
+        height: 65px;
+        bottom: 25px;
+        right: 25px;
+        background-color: var(--cor-whatsapp);
         color: #FFF;
         border-radius: 50px;
         text-align: center;
-        font-size: 30px;
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        font-size: 35px;
+        box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
         z-index: 1000;
         display: flex;
         align-items: center;
         justify-content: center;
         text-decoration: none;
+        transition: background-color 0.3s;
       }
       .whatsapp-float:hover {
-        color: #fff;
-        background-color: #1ea952;
+        background-color: var(--cor-whatsapp-hover);
+        color: white;
       }
     </style>
   </head>
   <body>
 
-    <nav class="navbar navbar-light bg-white fixed-top shadow-sm py-3">
-      <div class="container d-flex justify-content-between align-items-center">
-        <span class="navbar-brand mb-0 h1 d-flex align-items-center">
-          <i class="bi bi-shield-check text-destaque fs-2 me-2"></i>
-          <span class="fw-bolder">Poder <span class="text-primary">Financeiro</span></span>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm py-3">
+      <div class="container">
+        <span class="navbar-brand d-flex align-items-center fw-bold fs-4">
+          <i class="bi bi-shield-lock-fill text-primary me-2 fs-3"></i>
+          Poder <span class="text-primary ms-1">Financeiro</span>
         </span>
-        <span class="text-muted small d-none d-md-block">Consultora Autorizada: <strong>Solange Ladeira</strong></span>
+        <div class="d-none d-md-block">
+          <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-outline-success fw-bold rounded-pill px-4">
+            <i class="bi bi-whatsapp me-2"></i> Falar com Especialista
+          </a>
+        </div>
       </div>
     </nav>
 
-    <section class="hero-section text-white py-5 py-lg-5">
-      <div class="container py-5">
-        <div class="row justify-content-center text-center text-md-start align-items-center">
-          <div class="col-lg-8">
-            <span class="badge bg-success bg-opacity-25 text-success px-3 py-2 rounded-pill mb-3 fw-bold text-uppercase tracking-wide">Dinheiro na conta em até 24h</span>
-            <h1 class="display-4 fw-extrabold headline mb-4 text-white">
-              Receba antecipadamente o que é seu: <span class="text-destaque">Antecipe até 5 parcelas</span> do seu FGTS hoje mesmo.
-            </h1>
-            <p class="lead mb-5 text-gray-300 fs-4 fw-light opacity-75">
-              Transforme o saldo retido do seu FGTS em dinheiro livre. Sem parcelas mensais, sem comprometer sua renda e com as melhores taxas do mercado.
-            </p>
+    <header class="hero-urgencia text-white py-5">
+      <div class="container py-4">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-10">
+            <div class="badge bg-danger text-wrap fs-6 px-3 py-2 rounded-pill mb-4 mb-md-3 mt-3 mt-md-0 shadow-sm">
+              <i class="bi bi-exclamation-triangle-fill me-1"></i> ALERTA GERAL PARA TRABALHADORES
+            </div>
             
-            <div class="d-grid gap-2 col-12 col-md-8 mx-md-0 mb-3">
-              <a href="https://wa.me/5521992279948?text=Ol%C3%A1,%20Solange!%20Quero%20liberar%20meu%20FGTS%20agora." target="_blank" class="btn btn-success btn-lg py-3 fs-5 fw-bold btn-conversao rounded-pill">
-                <i class="bi bi-whatsapp me-2"></i> Falar com Especialista Agora
+            <h1 class="display-4 fw-extrabold headline-texto mb-4">
+              O Prazo para Antecipar <span class="text-warning">5 Anos do seu FGTS</span> Está Acabando!
+            </h1>
+            
+            <p class="lead fs-4 text-light opacity-75 mb-5 px-md-5">
+              A partir de <strong>1º de novembro de 2026</strong>, a nova Resolução do CCFGTS entrará em vigor e seu direito de saque será severamente limitado. Não deixe seu dinheiro travado no governo.
+            </p>
+
+            <div class="d-grid gap-2 col-12 col-md-8 col-lg-6 mx-auto">
+              <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-conversao btn-lg py-3 rounded-pill fs-5">
+                <i class="bi bi-whatsapp fs-4 me-2 align-middle"></i> Falar com Solange Ladeira no WhatsApp
               </a>
             </div>
-            <p class="small text-muted"><i class="bi bi-lock-fill me-1"></i> Ambiente 100% seguro. Análise rápida e sem compromisso.</p>
+            <p class="mt-3 small text-secondary"><i class="bi bi-lock-fill"></i> Atendimento 100% seguro e confidencial.</p>
           </div>
         </div>
       </div>
-    </section>
+    </header>
 
     <section class="py-5 bg-light">
-      <div class="container py-5">
+      <div class="container py-4">
         <div class="text-center mb-5">
-          <h2 class="fw-bold h1 text-dark">O crédito mais inteligente que você pode fazer</h2>
-          <p class="lead text-muted">Aproveite as vantagens de antecipar com a Poder Financeiro.</p>
+          <h2 class="fw-bold text-dark">Entenda o que muda com a Resolução CCFGTS nº 1.130/2025</h2>
+          <p class="text-muted fs-5">Veja por que você precisa agir rápido para garantir o seu respiro financeiro.</p>
         </div>
 
         <div class="row g-4">
-          <div class="col-md-4">
-            <div class="card card-beneficio h-100 p-4 shadow-sm">
-              <div class="card-body text-center">
-                <div class="icon-wrapper">
-                  <i class="bi bi-person-hearts fs-1"></i>
-                </div>
-                <h3 class="h4 fw-bold text-dark">Atendimento Premium</h3>
-                <p class="text-muted">Esqueça robôs e menus infinitos. Você será atendido pessoalmente pela Solange, especialista dedicada a encontrar a melhor condição para o seu perfil.</p>
+          <div class="col-md-6 col-lg-3">
+            <div class="card card-regra h-100 shadow-sm">
+              <div class="card-body">
+                <i class="bi bi-calendar-x text-danger fs-1 mb-3"></i>
+                <h5 class="card-title fw-bold">Queda no Limite</h5>
+                <p class="card-text text-muted">A partir de novembro/2026, a antecipação cairá de 5 para <strong>apenas 3 parcelas anuais</strong>. Seu acesso ao crédito será reduzido.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-3">
+            <div class="card card-regra h-100 shadow-sm">
+              <div class="card-body">
+                <i class="bi bi-cash-stack text-warning fs-1 mb-3"></i>
+                <h5 class="card-title fw-bold">Teto de Valor</h5>
+                <p class="card-text text-muted">O valor máximo permitido para cada saque antecipado será limitado a <strong>R$ 500,00 por ano</strong>.</p>
               </div>
             </div>
           </div>
 
-          <div class="col-md-4">
-            <div class="card card-beneficio h-100 p-4 shadow-sm">
-              <div class="card-body text-center">
-                <div class="icon-wrapper">
-                  <i class="bi bi-check2-circle fs-1"></i>
-                </div>
-                <h3 class="h4 fw-bold text-dark">Sem Burocracia</h3>
-                <p class="text-muted">Está negativado? Não tem problema. Como a garantia é o seu próprio saldo do FGTS, a aprovação é facilitada e não compromete seu orçamento mensal.</p>
+          <div class="col-md-6 col-lg-3">
+            <div class="card card-regra h-100 shadow-sm">
+              <div class="card-body">
+                <i class="bi bi-hourglass-split text-primary fs-1 mb-3"></i>
+                <h5 class="card-title fw-bold">Carência de 90 Dias</h5>
+                <p class="card-text text-muted">Novos optantes do Saque-Aniversário terão que aguardar <strong>90 dias</strong> antes de poderem solicitar qualquer empréstimo.</p>
               </div>
             </div>
           </div>
 
-          <div class="col-md-4">
-            <div class="card card-beneficio h-100 p-4 shadow-sm">
-              <div class="card-body text-center">
-                <div class="icon-wrapper">
-                  <i class="bi bi-phone-vibrate fs-1"></i>
-                </div>
-                <h3 class="h4 fw-bold text-dark">Experiência 100% Digital</h3>
-                <p class="text-muted">Resolva tudo pelo seu celular. Desde a simulação até a assinatura do contrato. Receba o dinheiro na sua conta bancária sem sair de casa.</p>
+          <div class="col-md-6 col-lg-3">
+            <div class="card card-regra h-100 shadow-sm" style="border-left-color: #0d6efd;">
+              <div class="card-body">
+                <i class="bi bi-lightning-charge text-success fs-1 mb-3"></i>
+                <h5 class="card-title fw-bold text-success">Liberando Hoje</h5>
+                <p class="card-text text-muted">Antecipando agora com a nossa equipe, o seu dinheiro cai na conta em <strong>até 1 dia útil</strong>, sem as novas amarras.</p>
               </div>
             </div>
           </div>
@@ -189,77 +182,62 @@
     </section>
 
     <section class="py-5 bg-white">
-      <div class="container py-5">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="quadro-futuro p-5 rounded-3 shadow-sm">
-              <h2 class="fw-bold h2 mb-4 text-dark">Chegou a hora de ter o seu respiro financeiro.</h2>
-              <p class="fs-5 text-secondary mb-4">
-                Imagine a tranquilidade de acordar amanhã sabendo que aquela dívida urgente foi quitada. Imagine ter o dinheiro na mão para investir no seu próprio negócio, reformar sua casa ou lidar com um imprevisto familiar, <strong>sem criar novos boletos</strong>.
-              </p>
-              <p class="fs-5 text-secondary">
-                O dinheiro do FGTS é seu por direito. Não deixe ele parado rendendo quase nada enquanto você passa aperto. Nós estamos prontos para fazer esse dinheiro chegar até você hoje.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-5 hero-section text-center text-white">
-      <div class="container py-5">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <h2 class="display-5 fw-bold mb-4">Você tem 1 minuto para mudar sua realidade financeira?</h2>
-            <p class="lead mb-5 opacity-75">
-              É só o que você precisa. Clique no botão abaixo, me mande um "Olá" no WhatsApp e eu farei a análise do seu saldo em instantes. Sem compromisso e sem enrolação.
+      <div class="container py-4">
+        <div class="row align-items-center bg-light p-4 p-md-5 rounded-3 shadow-sm border">
+          <div class="col-lg-8 mb-4 mb-lg-0">
+            <h2 class="fw-bold mb-3">Seu respiro financeiro nas mãos de quem entende.</h2>
+            <p class="fs-5 text-secondary">
+              Sou <strong>Solange Ladeira</strong>, especialista em soluções de crédito pela <strong class="text-dark">Poder Financeiro</strong>. Nossa missão é devolver a liberdade e a tranquilidade para as famílias brasileiras.
             </p>
-            
-            <div class="d-grid gap-2 col-12 col-md-8 mx-auto">
-              <a href="https://wa.me/5521992279948?text=Ol%C3%A1,%20Solange!%20Li%20a%20p%C3%A1gina%20e%20quero%20liberar%20meu%20FGTS%20agora." target="_blank" class="btn btn-success btn-lg py-4 fs-4 fw-bold btn-conversao rounded-3 shadow-lg">
-                Liberar meu FGTS pelo WhatsApp <i class="bi bi-arrow-right-circle ms-2"></i>
-              </a>
-            </div>
-            <p class="mt-4 small text-gray-400">Atendimento humanizado: +55 21 99227-9948</p>
+            <p class="fs-5 text-secondary">
+              Não permita que novas leis prendam o dinheiro que é seu por direito. Estou pronta para fazer uma análise rápida, segura e sem burocracia do seu perfil antes que as regras mudem.
+            </p>
+            <ul class="list-unstyled mt-4">
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Atendimento Humanizado (Nada de robôs)</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Sem parcelas mensais pesando no seu bolso</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Processo 100% digital e seguro</li>
+            </ul>
+          </div>
+          <div class="col-lg-4 text-center">
+             <div class="bg-white p-4 rounded-circle shadow-sm d-inline-block mb-3 border">
+               <i class="bi bi-shield-check text-primary" style="font-size: 5rem;"></i>
+             </div>
+             <h4 class="fw-bold">Solange Ladeira</h4>
+             <span class="badge bg-dark">Consultora Autorizada</span>
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="bg-black text-light py-5">
+    <section class="py-5 text-center">
       <div class="container">
-        <div class="row align-items-center">
-          
-          <div class="col-md-5 mb-4 mb-md-0">
-            <h5 class="fw-bold mb-3 d-flex align-items-center">
-              <i class="bi bi-shield-check text-success fs-3 me-2"></i> Poder Financeiro
-            </h5>
-            <p class="text-muted small">
-              Solange Ladeira dos Santos<br>
-              Consultora e Afiliada Autorizada<br>
-              WhatsApp: (21) 99227-9948
-            </p>
-            <p class="text-muted small mb-0">&copy; 2026. Todos os direitos reservados.</p>
-          </div>
+        <h2 class="fw-bold mb-4">O tempo está correndo. Garanta sua antecipação hoje.</h2>
+        <div class="d-grid gap-2 col-12 col-md-6 mx-auto">
+          <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-conversao btn-lg py-4 rounded-3 fs-4">
+            Falar com Solange Ladeira no WhatsApp <i class="bi bi-arrow-right-circle ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
 
-          <div class="col-md-7">
-            <div class="alert alert-dark border border-secondary bg-transparent text-light mb-0 d-flex" role="alert">
-              <i class="bi bi-exclamation-triangle-fill text-warning fs-3 me-3 mt-1"></i>
-              <div class="small text-muted">
-                <strong class="text-warning">CUIDADO COM GOLPES:</strong> Nunca solicitamos depósitos, Pix ou transferências antecipadas para liberação de qualquer tipo de crédito. O desconto do Saque Aniversário é feito diretamente no seu saldo do FGTS pela Caixa Econômica Federal.
-              </div>
-            </div>
+    <footer class="bg-dark text-light py-4 border-top border-secondary">
+      <div class="container">
+        <div class="row align-items-center text-center text-md-start">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <p class="mb-1 fw-bold"><i class="bi bi-shield-lock-fill text-success me-1"></i> Poder Financeiro</p>
+            <p class="small text-muted mb-0">Consultoria: Solange Ladeira dos Santos<br>CNPJ: 00.000.000/0001-00</p>
           </div>
-
+          <div class="col-md-6 text-md-end text-muted small">
+            <p class="mb-0"><strong>Cuidado com Golpes:</strong> Nunca solicitamos depósitos, Pix ou taxas antecipadas para liberação de crédito.</p>
+          </div>
         </div>
       </div>
     </footer>
 
-    <a href="https://wa.me/5521992279948?text=Ol%C3%A1,%20Solange!%20Quero%20antecipar%20meu%20FGTS." target="_blank" class="whatsapp-float shadow-lg" title="Falar com a Solange no WhatsApp">
+    <a href="https://wa.me/5521992279948" target="_blank" class="whatsapp-float" title="Falar com Solange no WhatsApp" aria-label="Falar com Solange no WhatsApp">
       <i class="bi bi-whatsapp"></i>
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
   </body>
 </html>
