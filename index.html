@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Antecipe até 5 anos do seu FGTS com Solange Ladeira dos Santos. Especialista também em Consignado INSS, CLT e Empréstimo Pessoal.">
+    <meta name="description"
+        content="Antecipe até 5 anos do seu FGTS com Solange Ladeira dos Santos. Especialista também em Consignado INSS, CLT e Empréstimo Pessoal.">
     <title>Poder Financeiro | Solange Ladeira - Crédito e Antecipação FGTS</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <style>
         :root {
@@ -18,7 +20,8 @@
         }
 
         /* --- LÓGICA DE SCROLL SNAPPING --- */
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             padding: 0;
@@ -34,14 +37,16 @@
         }
 
         /* Configuração Base das Secções Full Height */
-        section, header, footer {
+        section,
+        header,
+        footer {
             scroll-snap-align: start;
             scroll-snap-stop: always;
-            min-height: 100vh; 
+            min-height: 100vh;
             width: 100%;
             display: flex;
-            align-items: center; 
-            justify-content: center; 
+            align-items: center;
+            justify-content: center;
             position: relative;
             overflow: hidden;
         }
@@ -75,8 +80,11 @@
         }
 
         /* --- SECÇÕES DE ALTA CONVERSÃO E CARDS --- */
-        #motivos-acao, #consignado-inss, #consignado-clt, #credito-pessoal {
-            padding-top: 80px; 
+        #motivos-acao,
+        #consignado-inss,
+        #consignado-clt,
+        #credito-pessoal {
+            padding-top: 80px;
             padding-bottom: 40px;
         }
 
@@ -85,20 +93,20 @@
             border-radius: 16px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            margin-top: 20px; 
+            margin-top: 20px;
             background: #fff;
         }
-        
+
         .card-alta-conversao:hover {
             transform: translateY(-8px);
         }
-        
+
         .icon-gatilho {
             font-size: 2.5rem;
             display: inline-block;
             margin-bottom: 0.5rem;
         }
-        
+
         .badge-alerta {
             position: absolute;
             top: -15px;
@@ -114,9 +122,21 @@
         }
 
         /* Cores de Identidade Secundárias */
-        .text-inss { color: #f68b1f; } /* Laranja INSS */
-        .text-clt { color: #0dcaf0; } /* Ciano Corporativo */
-        .text-pessoal { color: #198754; } /* Verde Liquidez (Pessoal) */
+        .text-inss {
+            color: #f68b1f;
+        }
+
+        /* Laranja INSS */
+        .text-clt {
+            color: #0dcaf0;
+        }
+
+        /* Ciano Corporativo */
+        .text-pessoal {
+            color: #198754;
+        }
+
+        /* Verde Liquidez (Pessoal) */
 
         /* --- BOTÕES FLUTUANTES PRESERVADOS --- */
         .audio-float {
@@ -127,7 +147,7 @@
             color: #FFF;
             border-radius: 50px;
             padding: 12px 20px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -136,12 +156,14 @@
             cursor: pointer;
             transition: all 0.3s;
         }
+
         .audio-float .audio-text {
             font-size: 14px;
             font-weight: 600;
             margin-left: 10px;
             white-space: nowrap;
         }
+
         .audio-float:hover {
             background-color: #5a6268;
             transform: scale(1.05);
@@ -158,7 +180,7 @@
             border-radius: 50px;
             text-align: center;
             font-size: 35px;
-            box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -166,26 +188,68 @@
             text-decoration: none;
             transition: transform 0.3s;
         }
+
         .whatsapp-float:hover {
             transform: scale(1.1);
         }
 
         /* --- AJUSTES RESPONSIVOS --- */
         @media (max-width: 768px) {
-            section, header, footer { height: auto; min-height: 100vh; padding: 60px 0; }
-            #motivos-acao, #consignado-inss, #consignado-clt, #credito-pessoal { padding-top: 100px; padding-bottom: 80px; } 
-            .card-alta-conversao { margin-bottom: 25px; }
-            .display-6 { font-size: 1.8rem; line-height: 1.3; }
+
+            section,
+            header,
+            footer {
+                height: auto;
+                min-height: 100vh;
+                padding: 60px 0;
+            }
+
+            #motivos-acao,
+            #consignado-inss,
+            #consignado-clt,
+            #credito-pessoal {
+                padding-top: 100px;
+                padding-bottom: 80px;
+            }
+
+            .card-alta-conversao {
+                margin-bottom: 25px;
+            }
+
+            .display-6 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
         }
+
         @media (max-width: 576px) {
-            .display-4 { font-size: 2rem !important; }
-            .lead { font-size: 1.1rem; }
-            .audio-float .audio-text { display: none; }
-            .audio-float { width: 55px; height: 55px; padding: 0; }
-            .whatsapp-float { width: 55px; height: 55px; font-size: 30px; }
+            .display-4 {
+                font-size: 2rem !important;
+            }
+
+            .lead {
+                font-size: 1.1rem;
+            }
+
+            .audio-float .audio-text {
+                display: none;
+            }
+
+            .audio-float {
+                width: 55px;
+                height: 55px;
+                padding: 0;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 30px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <nav class="navbar bg-white fixed-top shadow-sm py-3" style="z-index: 1050;">
@@ -194,7 +258,8 @@
                 <i class="bi bi-shield-lock-fill text-primary me-2"></i>
                 Poder <span class="text-primary ms-1">Financeiro</span>
             </span>
-            <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success rounded-pill fw-bold d-none d-md-block shadow-sm">
+            <a href="https://wa.me/5521992279948" target="_blank"
+                class="btn btn-success rounded-pill fw-bold d-none d-md-block shadow-sm">
                 Simular agora no WhatsApp
             </a>
         </div>
@@ -210,9 +275,11 @@
                 ALERTA: RESOLUÇÃO CCFGTS nº 1.130/2025
             </div>
             <h1 class="display-4 fw-bold mb-4">Antecipe <span class="text-warning">5 Anos do seu FGTS</span> Hoje!</h1>
-            <p class="lead mb-5 opacity-90">Em novembro de 2026, o seu limite cairá para apenas 3 parcelas. Não deixe o governo travar o seu dinheiro.</p>
+            <p class="lead mb-5 opacity-90">Em novembro de 2026, o seu limite cairá para apenas 3 parcelas. Não deixe o
+                governo travar o seu dinheiro.</p>
             <div class="d-flex justify-content-center">
-                <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                <a href="https://wa.me/5521992279948" target="_blank"
+                    class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
                     <i class="bi bi-whatsapp fs-4 me-2"></i> Simular agora no WhatsApp
                 </a>
             </div>
@@ -226,7 +293,8 @@
                     Garanta o seu respiro financeiro hoje antes que as regras mudem
                 </h2>
                 <p class="fs-5 text-muted px-md-5 mx-md-5">
-                    A <strong class="text-danger">Resolução CCFGTS nº 1.130/2025</strong> vai limitar severamente o seu direito de saque. Entenda por que esperar é o maior erro financeiro que pode cometer hoje.
+                    A <strong class="text-danger">Resolução CCFGTS nº 1.130/2025</strong> vai limitar severamente o seu
+                    direito de saque. Entenda por que esperar é o maior erro financeiro que pode cometer hoje.
                 </p>
             </div>
 
@@ -240,7 +308,9 @@
                             <i class="bi bi-alarm text-primary icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">O Limite Vai Despencar</h4>
                             <p class="card-text text-secondary">
-                                Em 1º de novembro de 2026, o seu direito sofrerá um corte drástico: o limite <strong>cairá de 5 para apenas 3 parcelas anuais</strong>. A janela para sacar o valor máximo está a fechar-se rapidamente.
+                                Em 1º de novembro de 2026, o seu direito sofrerá um corte drástico: o limite
+                                <strong>cairá de 5 para apenas 3 parcelas anuais</strong>. A janela para sacar o valor
+                                máximo está a fechar-se rapidamente.
                             </p>
                         </div>
                     </div>
@@ -255,7 +325,9 @@
                             <i class="bi bi-graph-down text-primary icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">Bloqueio de Valores</h4>
                             <p class="card-text text-secondary">
-                                A nova lei crava um <strong>teto de R$ 500,00</strong> por parcela antecipada e impõe uma <strong>carência de 90 dias</strong> para novos optantes. Deixar o seu dinheiro parado custará caro.
+                                A nova lei crava um <strong>teto de R$ 500,00</strong> por parcela antecipada e impõe
+                                uma <strong>carência de 90 dias</strong> para novos optantes. Deixar o seu dinheiro
+                                parado custará caro.
                             </p>
                         </div>
                     </div>
@@ -270,7 +342,9 @@
                             <i class="bi bi-lightning-charge text-primary icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">Respiro Sem Dívidas</h4>
                             <p class="card-text text-secondary">
-                                Antecipar agora garante dinheiro na sua conta em <strong>até 1 dia útil</strong>. Sem comprometer a sua renda mensal com boletos, é o alívio limpo que a sua família precisa hoje.
+                                Antecipar agora garante dinheiro na sua conta em <strong>até 1 dia útil</strong>. Sem
+                                comprometer a sua renda mensal com boletos, é o alívio limpo que a sua família precisa
+                                hoje.
                             </p>
                         </div>
                     </div>
@@ -280,10 +354,11 @@
             <div class="row mt-4 text-center">
                 <div class="col-12 d-flex flex-column align-items-center">
                     <p class="small text-muted mb-3">
-                        <i class="bi bi-shield-lock-fill text-success me-1"></i> 
+                        <i class="bi bi-shield-lock-fill text-success me-1"></i>
                         Atendimento 100% seguro. Sujeito a análise de margem.
                     </p>
-                    <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                    <a href="https://wa.me/5521992279948" target="_blank"
+                        class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
                         <i class="bi bi-whatsapp fs-4 me-2"></i> Simular agora no WhatsApp
                     </a>
                 </div>
@@ -298,7 +373,8 @@
                     Crédito Especial para Aposentados e Pensionistas do INSS
                 </h2>
                 <p class="fs-5 text-muted px-md-5 mx-md-5">
-                    As melhores taxas do mercado com desconto direto no benefício. Segurança, transparência e aprovação facilitada para quem já contribuiu a vida toda.
+                    As melhores taxas do mercado com desconto direto no benefício. Segurança, transparência e aprovação
+                    facilitada para quem já contribuiu a vida toda.
                 </p>
             </div>
 
@@ -309,7 +385,9 @@
                             <i class="bi bi-pie-chart-fill text-inss icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Margem de 45%</h5>
                             <p class="card-text text-secondary small">
-                                O limite total é dividido estrategicamente: <strong>35%</strong> para empréstimos em dinheiro, <strong>5%</strong> para cartão de crédito e <strong>5%</strong> exclusivo para o cartão benefício.
+                                O limite total é dividido estrategicamente: <strong>35%</strong> para empréstimos em
+                                dinheiro, <strong>5%</strong> para cartão de crédito e <strong>5%</strong> exclusivo
+                                para o cartão benefício.
                             </p>
                         </div>
                     </div>
@@ -321,7 +399,8 @@
                             <i class="bi bi-percent text-inss icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Juros Controlados</h5>
                             <p class="card-text text-secondary small">
-                                Proteção garantida por lei: o teto máximo atual é de apenas <strong>1,85% ao mês</strong> para empréstimos e <strong>2,46%</strong> para operações com cartões.
+                                Proteção garantida por lei: o teto máximo atual é de apenas <strong>1,85% ao
+                                    mês</strong> para empréstimos e <strong>2,46%</strong> para operações com cartões.
                             </p>
                         </div>
                     </div>
@@ -333,7 +412,8 @@
                             <i class="bi bi-calendar3 text-inss icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Até 84 Meses</h5>
                             <p class="card-text text-secondary small">
-                                Prazo estendido para garantir que a parcela caiba no seu bolso. Parcele o seu crédito em até <strong>7 anos (84 meses)</strong> com valores fixos do início ao fim.
+                                Prazo estendido para garantir que a parcela caiba no seu bolso. Parcele o seu crédito em
+                                até <strong>7 anos (84 meses)</strong> com valores fixos do início ao fim.
                             </p>
                         </div>
                     </div>
@@ -348,20 +428,23 @@
                             <i class="bi bi-person-bounding-box text-inss icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Segurança Total</h5>
                             <p class="card-text text-secondary small">
-                                A liberação exige o desbloqueio prévio via portal <strong>Meu INSS</strong> e validação por <strong>reconhecimento facial (Biometria)</strong>. Ninguém faz empréstimos no seu nome.
+                                A liberação exige o desbloqueio prévio via portal <strong>Meu INSS</strong> e validação
+                                por <strong>reconhecimento facial (Biometria)</strong>. Ninguém faz empréstimos no seu
+                                nome.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row mt-5 text-center">                    
+            <div class="row mt-5 text-center">
                 <p class="small text-muted mb-3">
-                        <i class="bi bi-shield-lock-fill text-success me-1"></i> 
-                        Atendimento 100% seguro. Sujeito a análise de margem.
-                    </p>
+                    <i class="bi bi-shield-lock-fill text-success me-1"></i>
+                    Atendimento 100% seguro. Sujeito a análise de margem.
+                </p>
                 <div class="col-12 d-flex justify-content-center">
-                    <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                    <a href="https://wa.me/5521992279948" target="_blank"
+                        class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
                         <i class="bi bi-whatsapp fs-4 me-2"></i> Simular agora no WhatsApp
                     </a>
                 </div>
@@ -376,7 +459,8 @@
                     O Novo Consignado Privado para Trabalhadores CLT
                 </h2>
                 <p class="fs-5 text-muted px-md-5 mx-md-5">
-                    Tem carteira assinada? O crédito mais barato do Brasil agora está disponível de forma 100% digital, sem burocracia com os Recursos Humanos da sua empresa.
+                    Tem carteira assinada? O crédito mais barato do Brasil agora está disponível de forma 100% digital,
+                    sem burocracia com os Recursos Humanos da sua empresa.
                 </p>
             </div>
 
@@ -387,7 +471,9 @@
                             <i class="bi bi-wallet2 text-clt icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Margem de 35%</h5>
                             <p class="card-text text-secondary small">
-                                O desconto é efetuado <strong>diretamente na folha de pagamento</strong>, garantindo juros muito menores que os empréstimos pessoais comuns. O limite é de 35% do seu salário líquido.
+                                O desconto é efetuado <strong>diretamente na folha de pagamento</strong>, garantindo
+                                juros muito menores que os empréstimos pessoais comuns. O limite é de 35% do seu salário
+                                líquido.
                             </p>
                         </div>
                     </div>
@@ -399,7 +485,9 @@
                             <i class="bi bi-calendar-range text-clt icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Prazos Flexíveis</h5>
                             <p class="card-text text-secondary small">
-                                Ganhe fôlego financeiro a pagar em até <strong>96 parcelas</strong> (empresas privadas) ou até incríveis <strong>144 meses</strong> caso seja funcionário de empresas públicas elegíveis.
+                                Ganhe fôlego financeiro a pagar em até <strong>96 parcelas</strong> (empresas privadas)
+                                ou até incríveis <strong>144 meses</strong> caso seja funcionário de empresas públicas
+                                elegíveis.
                             </p>
                         </div>
                     </div>
@@ -414,7 +502,9 @@
                             <i class="bi bi-phone text-clt icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Contratação Digital</h5>
                             <p class="card-text text-secondary small">
-                                O processo foi modernizado. Toda a averbação e autorização é feita diretamente via aplicação da <strong>CTPS Digital (Carteira de Trabalho)</strong>, garantindo total privacidade.
+                                O processo foi modernizado. Toda a averbação e autorização é feita diretamente via
+                                aplicação da <strong>CTPS Digital (Carteira de Trabalho)</strong>, garantindo total
+                                privacidade.
                             </p>
                         </div>
                     </div>
@@ -426,7 +516,9 @@
                             <i class="bi bi-briefcase text-clt icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Rescisão Segura</h5>
                             <p class="card-text text-secondary small">
-                                Foi despedido? Fique descansado. O saldo devedor pode ser <strong>redirecionado automaticamente</strong> para o novo emprego ou descontado do limite de 40% das verbas rescisórias.
+                                Foi despedido? Fique descansado. O saldo devedor pode ser <strong>redirecionado
+                                    automaticamente</strong> para o novo emprego ou descontado do limite de 40% das
+                                verbas rescisórias.
                             </p>
                         </div>
                     </div>
@@ -434,10 +526,15 @@
             </div>
 
             <div class="row mt-5 text-center">
+                <p class="small text-muted mb-3">
+                    <i class="bi bi-shield-lock-fill text-success me-1"></i>
+                    Atendimento 100% seguro. Sujeito a análise de margem.
+                </p>
                 <div class="col-12 d-flex justify-content-center">
-                    <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
-                    <i class="bi bi-whatsapp fs-4 me-2"></i> Simular agora no WhatsApp
-                </a>
+                    <a href="https://wa.me/5521992279948" target="_blank"
+                        class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                        <i class="bi bi-whatsapp fs-4 me-2"></i> Simular agora no WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
@@ -450,7 +547,8 @@
                     Crédito Pessoal: Dinheiro na mão para usar como você quiser
                 </h2>
                 <p class="fs-5 text-muted px-md-5 mx-md-5">
-                    Livre de burocracias. Perfeito para quitar dívidas urgentes, reformar a casa, investir nos seus projetos ou lidar com imprevistos financeiros com rapidez.
+                    Livre de burocracias. Perfeito para quitar dívidas urgentes, reformar a casa, investir nos seus
+                    projetos ou lidar com imprevistos financeiros com rapidez.
                 </p>
             </div>
 
@@ -461,7 +559,8 @@
                             <i class="bi bi-cash-stack text-pessoal icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">Livre Utilização</h4>
                             <p class="card-text text-secondary">
-                                Você não precisa justificar o uso. O dinheiro cai na sua conta e é seu para usar exatamente como e onde precisar, devolvendo o seu controle financeiro.
+                                Você não precisa justificar o uso. O dinheiro cai na sua conta e é seu para usar
+                                exatamente como e onde precisar, devolvendo o seu controle financeiro.
                             </p>
                         </div>
                     </div>
@@ -476,7 +575,8 @@
                             <i class="bi bi-check-circle text-pessoal icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">Aprovação Rápida</h4>
                             <p class="card-text text-secondary">
-                                Análise inteligente e ágil do seu perfil. Após a aprovação da proposta, o crédito é liberado com agilidade para solucionar o seu problema sem esperas.
+                                Análise inteligente e ágil do seu perfil. Após a aprovação da proposta, o crédito é
+                                liberado com agilidade para solucionar o seu problema sem esperas.
                             </p>
                         </div>
                     </div>
@@ -491,7 +591,8 @@
                             <i class="bi bi-shield-check text-pessoal icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">100% Digital e Seguro</h4>
                             <p class="card-text text-secondary">
-                                Processo protegido e transparente. O nosso maior compromisso de confiança: <strong>NÃO cobramos qualquer taxa antecipada</strong> para a liberação do seu crédito.
+                                Processo protegido e transparente. O nosso maior compromisso de confiança: <strong>NÃO
+                                    cobramos qualquer taxa antecipada</strong> para a liberação do seu crédito.
                             </p>
                         </div>
                     </div>
@@ -499,8 +600,13 @@
             </div>
 
             <div class="row mt-5 text-center">
+                <p class="small text-muted mb-3">
+                    <i class="bi bi-shield-lock-fill text-success me-1"></i>
+                    Atendimento 100% seguro. Sujeito a análise de margem.
+                </p>
                 <div class="col-12 d-flex justify-content-center">
-                    <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                    <a href="https://wa.me/5521992279948" target="_blank"
+                        class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
                         <i class="bi bi-whatsapp fs-4 me-2"></i> Simular agora no WhatsApp
                     </a>
                 </div>
@@ -517,12 +623,14 @@
                     </div>
                     <h2 class="display-5 fw-bold mb-4">Solange Ladeira dos Santos</h2>
                     <p class="fs-4 text-secondary mb-5">
-                        Especialista da <strong>Poder Financeiro</strong>. A nossa missão é devolver a liberdade financeira às famílias brasileiras com um processo 100% digital e seguro.
+                        Especialista da <strong>Poder Financeiro</strong>. A nossa missão é devolver a liberdade
+                        financeira às famílias brasileiras com um processo 100% digital e seguro.
                     </p>
                     <div class="d-flex justify-content-center">
-                        <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
-                    <i class="bi bi-whatsapp fs-4 me-2"></i> Falar com a Solange
-                </a>
+                        <a href="https://wa.me/5521992279948" target="_blank"
+                            class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                            <i class="bi bi-whatsapp fs-4 me-2"></i> Falar com a Solange
+                        </a>
                     </div>
                 </div>
             </div>
@@ -547,7 +655,8 @@
         </div>
     </footer>
 
-    <button id="btnAudio" class="audio-float" title="Pausar/Tocar Música da Campanha" aria-label="Controle de Música da Campanha">
+    <button id="btnAudio" class="audio-float" title="Pausar/Tocar Música da Campanha"
+        aria-label="Controle de Música da Campanha">
         <i id="iconeAudio" class="bi bi-volume-mute-fill"></i>
         <span class="audio-text">Ouvir música da campanha</span>
     </button>
@@ -560,11 +669,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const audio = document.getElementById('musicaFundo');
             const btnAudio = document.getElementById('btnAudio');
             const iconeAudio = document.getElementById('iconeAudio');
-            
+
             function atualizarIcone() {
                 if (audio.paused) {
                     iconeAudio.classList.replace('bi-volume-up-fill', 'bi-volume-mute-fill');
@@ -573,7 +682,7 @@
                 }
             }
 
-            btnAudio.addEventListener('click', function(e) {
+            btnAudio.addEventListener('click', function (e) {
                 e.stopPropagation();
                 audio.paused ? audio.play() : audio.pause();
                 atualizarIcone();
@@ -581,7 +690,7 @@
 
             // Autoplay na primeira interação
             document.body.addEventListener('click', () => {
-                if(audio.paused && !localStorage.getItem('musicaTocou')) {
+                if (audio.paused && !localStorage.getItem('musicaTocou')) {
                     audio.play();
                     localStorage.setItem('musicaTocou', 'true');
                     atualizarIcone();
@@ -590,4 +699,5 @@
         });
     </script>
 </body>
+
 </html>
