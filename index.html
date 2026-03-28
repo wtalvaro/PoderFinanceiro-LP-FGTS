@@ -133,37 +133,54 @@
             transition: color 0.3s ease;
         }
 
-        /* --- BOTÕES FLUTUANTES PRESERVADOS --- */
+        /* --- NOVA ESTÉTICA E ANIMAÇÃO DO BOTÃO DE ÁUDIO --- */
+        @keyframes audioPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+                transform: scale(1);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 193, 7, 0);
+                transform: scale(1.05);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+                transform: scale(1);
+            }
+        }
+
         .audio-float {
             position: fixed;
             bottom: 25px;
             left: 25px;
-            background-color: #6c757d;
-            color: #FFF;
-            border-radius: 50px;
-            padding: 12px 20px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
             border: none;
             cursor: pointer;
-            transition: all 0.3s;
+            text-decoration: none;
+            animation: audioPulse 2s infinite;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .audio-float .bi {
+            font-size: 1.4rem;
         }
 
         .audio-float .audio-text {
-            font-size: 14px;
-            font-weight: 600;
-            margin-left: 10px;
-            white-space: nowrap;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .audio-float:hover {
-            background-color: #5a6268;
-            transform: scale(1.05);
+            animation: none;
+            transform: scale(1.1) translateY(-5px);
         }
 
+        /* --- BOTÃO FLUTUANTE DO WHATSAPP --- */
         .whatsapp-float {
             position: fixed;
             width: 65px;
@@ -597,6 +614,29 @@
         </div>
     </section>
 
+    <section class="bg-light w-100">
+        <div class="container text-center">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto">
+                    <div class="mb-4">
+                        <i class="bi bi-person-check-fill text-primary" style="font-size: 5rem;"></i>
+                    </div>
+                    <h2 class="display-5 fw-bold mb-4">Solange Ladeira dos Santos</h2>
+                    <p class="fs-4 text-secondary mb-5">
+                        Especialista da <strong>Poder Financeiro</strong>. A nossa missão é devolver a liberdade
+                        financeira às famílias brasileiras com um processo 100% digital e seguro.
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <a href="https://wa.me/5521992279948" target="_blank"
+                            class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                            <i class="bi bi-whatsapp fs-4 me-2"></i> Falar com a Solange
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="bg-dark text-light w-100 py-5" style="border-top: 4px solid var(--accent-gold); flex-direction: column;">
         <div class="container w-100 pt-3">
             
@@ -607,7 +647,7 @@
                         <i class="bi bi-shield-lock-fill text-warning me-2"></i>
                         Poder <span class="text-warning ms-1">Financeiro</span>
                     </span>
-                    <p class="small text-secondary mb-3">Solange Ladeira dos Santos<br></p>
+                    <p class="small text-secondary mb-3">Solange Ladeira dos Santos<br>CNPJ: 00.000.000/0001-00</p>
                     <div class="badge bg-success bg-opacity-25 border border-success text-success p-2 fs-6 mb-2 shadow-sm">
                         <i class="bi bi-patch-check-fill me-1"></i> Consultora Autorizada
                     </div>
@@ -660,12 +700,14 @@
         </div>
     </footer>
 
-    <button id="btnAudio" class="audio-float" title="Pausar/Tocar Música da Campanha"
-        aria-label="Controle de Música da Campanha">
-        <i id="iconeAudio" class="bi bi-volume-mute-fill"></i>
-        <span class="audio-text">Ouvir música da campanha</span>
+    <button id="btnAudio" 
+            class="audio-float btn btn-warning btn-lg rounded-pill shadow-lg py-3 px-4 d-flex align-items-center animate__animated animate__fadeInLeft animate__delay-2s" 
+            title="Ouvir mensagem importante de Solange"
+            aria-label="Tocar mensagem de voz da Solange Ladeira">
+        <i id="iconeAudio" class="bi bi-volume-up-fill me-2"></i>
+        <span class="audio-text text-dark">OUVIR MENSAGEM DE SOLANGE</span>
     </button>
-    <audio id="musicaFundo" src="./A%20Chave%20do%20Respiro.mp3"></audio>
+    <audio id="musicaFundo" src="./A%20Chave%20do%20Respiro.mp3" loop></audio>
 
     <a href="https://wa.me/5521992279948" target="_blank" class="whatsapp-float shadow-lg">
         <i class="bi bi-whatsapp"></i>
