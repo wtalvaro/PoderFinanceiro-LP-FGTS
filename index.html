@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Antecipe até 5 anos do seu FGTS com a Poder Financeiro. Dinheiro em 1 dia útil antes das mudanças da Resolução 1.130/2025.">
-    <title>Poder Financeiro | Antecipação FGTS - Respiro para suas Contas</title>
+    <meta name="description" content="Antecipe até 5 anos do seu FGTS com Solange Ladeira dos Santos. Dinheiro em 1 dia útil antes das mudanças da Resolução 1.130/2025.">
+    <title>Poder Financeiro | Solange Ladeira - Antecipação FGTS</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -15,34 +15,27 @@
             --primary-blue: #0a2540;
             --accent-gold: #ffc107;
             --whatsapp-green: #25d366;
-            --danger-red: #dc3545;
+            --whatsapp-hover: #1ebe5d;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             color: var(--primary-blue);
-            overflow-x: hidden;
+            padding-top: 76px; /* Compensação da navbar fixa */
         }
 
-        /* Navbar Custom */
-        .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--accent-gold);
-        }
-
-        /* Hero Video Section */
-        #heroCarousel {
+        /* --- UI/UX: HERO SECTION COM ALINHAMENTO VERTICAL PERFEITO --- */
+        .hero-video-container {
             position: relative;
-            height: 90vh;
-            min-height: 550px;
+            min-height: calc(100vh - 76px); /* Ocupa a tela cheia descontando a navbar */
+            display: flex;
+            align-items: center; /* Centralização Vertical */
+            justify-content: center; /* Centralização Horizontal */
+            overflow: hidden;
+            background-color: #000;
         }
 
-        .carousel-inner, .carousel-item {
-            height: 100%;
-        }
-
-        .video-background {
+        .video-bg {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -52,231 +45,238 @@
             height: auto;
             transform: translate(-50%, -50%);
             object-fit: cover;
-            z-index: -1;
+            z-index: 0;
         }
 
-        .overlay {
+        .video-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(10, 37, 64, 0.8), rgba(0, 0, 0, 0.6));
-            z-index: 0;
-        }
-
-        .carousel-caption {
+            background: rgba(0, 0, 0, 0.65); /* Overlay para legibilidade */
             z-index: 1;
-            bottom: 25%;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* Estilo dos Cards de Benefícios */
-        .card-respiro {
-            border: none;
-            border-bottom: 4px solid var(--accent-gold);
-            transition: transform 0.3s ease;
-        }
-        .card-respiro:hover {
-            transform: translateY(-10px);
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 2rem;
         }
 
-        /* Botão WhatsApp Flutuante */
-        .whatsapp-fixed {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
+        /* --- COMPONENTES DE CONVERSÃO --- */
+        .btn-whatsapp {
             background-color: var(--whatsapp-green);
+            border: none;
             color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+            font-weight: 700;
+            padding: 15px 35px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-hover);
+            transform: scale(1.05);
+            color: white;
+        }
+
+        .card-regra {
+            border: none;
+            border-left: 4px solid var(--accent-gold);
+            transition: transform 0.2s;
+        }
+        .card-regra:hover { transform: translateY(-5px); }
+
+        /* --- MANUTENÇÃO DO BOTÃO DE ÁUDIO (ESTILO ANTERIOR PRESERVADO) --- */
+        .audio-float {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background-color: #6c757d;
+            color: #FFF;
+            border-radius: 50px;
+            padding: 12px 20px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 9999;
-            text-decoration: none;
+            border: none;
+            cursor: pointer;
             transition: all 0.3s;
         }
-        .whatsapp-fixed:hover {
-            transform: scale(1.1);
-            color: white;
-        }
+        .audio-text { font-size: 14px; font-weight: 600; margin-left: 10px; }
 
-        /* CTA Pulsante */
-        .btn-cta {
+        /* WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 25px;
+            right: 25px;
             background-color: var(--whatsapp-green);
-            border: none;
-            padding: 18px 35px;
-            font-weight: bold;
-            font-size: 1.2rem;
+            color: #FFF;
             border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
         }
 
         @media (max-width: 768px) {
-            #heroCarousel { height: 100vh; }
-            .display-4 { font-size: 2.2rem; }
+            .audio-text { display: none; }
+            .audio-float { width: 55px; height: 55px; padding: 0; }
+            .display-4 { font-size: 2.1rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm py-3">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
-                <i class="bi bi-shield-check-fill text-primary me-2 fs-3"></i>
+            <span class="navbar-brand fw-bold fs-4 d-flex align-items-center">
+                <i class="bi bi-shield-lock-fill text-primary me-2"></i>
                 Poder <span class="text-primary ms-1">Financeiro</span>
-            </a>
+            </span>
             <div class="ms-auto d-none d-md-block">
-                <a href="https://wa.me/5521985099389" class="btn btn-outline-success fw-bold rounded-pill">
-                    <i class="bi bi-whatsapp"></i> Atendimento Wagner
+                <span class="me-3 small text-muted">Consultora: <strong>Solange Ladeira dos Santos</strong></span>
+                <a href="https://wa.me/5521992279948" class="btn btn-outline-success rounded-pill fw-bold">
+                    <i class="bi bi-whatsapp me-1"></i> Falar com Solange
                 </a>
             </div>
         </div>
     </nav>
 
-    <header id="heroCarousel" class="carousel slide">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <video class="video-background" autoplay muted loop playsinline>
-                    <source src="./A_Cangaceira_do_Capital_Video.mp4" type="video/mp4">
-                    Seu navegador não suporta vídeos.
-                </video>
-                <div class="overlay"></div>
-                
-                <div class="carousel-caption container text-center">
-                    <div class="badge bg-danger text-wrap fs-6 px-3 py-2 rounded-pill mb-4 animate__animated animate__fadeInDown">
-                        <i class="bi bi-exclamation-octagon-fill me-2"></i> ALERTA GERAL: RESOLUÇÃO CCFGTS nº 1.130/2025
-                    </div>
-                    
-                    <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInUp animate__delay-1s">
-                        O Prazo para Antecipar <span class="text-warning">5 Anos do seu FGTS</span> Está Acabando!
-                    </h1>
-                    
-                    <p class="lead fs-4 text-light mb-5 px-md-5 animate__animated animate__fadeInUp animate__delay-1s">
-                        A partir de 1º de novembro de 2026, as regras mudam e seu direito será limitado. 
-                        Garanta o seu <strong>respiro financeiro</strong> agora com quem entende do assunto.
-                    </p>
+    <section class="hero-video-container">
+        <video class="video-bg" autoplay muted loop playsinline>
+            <source src="./A_Cangaceira_do_Capital_Video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
 
-                    <div class="animate__animated animate__zoomIn animate__delay-2s">
-                        <a href="https://wa.me/5521985099389" target="_blank" class="btn btn-success btn-cta pulse text-white px-5 py-3 fs-3">
-                            <i class="bi bi-whatsapp me-2"></i> Falar com Wagner no WhatsApp
-                        </a>
-                        <p class="mt-3 text-light small"><i class="bi bi-clock-history"></i> Dinheiro na conta em até 1 dia útil</p>
-                    </div>
-                </div>
+        <div class="container hero-content text-center text-white">
+            <div class="badge bg-danger px-3 py-2 rounded-pill mb-4 animate__animated animate__fadeInDown">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i> ALERTA: MUDANÇA NA RESOLUÇÃO CCFGTS nº 1.130/2025
             </div>
-        </div>
-    </header>
+            
+            <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInUp">
+                Antecipe <span class="text-warning">5 Anos do seu FGTS</span> Agora!
+            </h1>
+            
+            <p class="lead fs-4 mb-5 opacity-90 animate__animated animate__fadeInUp animate__delay-1s">
+                O prazo está acabando. A partir de novembro de 2026, o limite cairá para apenas 3 parcelas. 
+                Garanta o seu <strong>respiro financeiro</strong> com a consultoria de Solange Ladeira.
+            </p>
 
-    <section class="py-5 bg-light">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">Por que agir antes da mudança?</h2>
-                <p class="text-muted">A Resolução CCFGTS nº 1.130/2025 trará novas restrições severas.</p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 card-respiro shadow-sm p-4 text-center">
-                        <i class="bi bi-graph-down-arrow text-danger fs-1 mb-3"></i>
-                        <h4 class="fw-bold">Queda no Saque</h4>
-                        <p>O limite de antecipação cairá de <strong>5 para 3 parcelas</strong> anuais após novembro/2026.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 card-respiro shadow-sm p-4 text-center">
-                        <i class="bi bi-cash-coin text-primary fs-1 mb-3"></i>
-                        <h4 class="fw-bold">Teto de Valor</h4>
-                        <p>O valor máximo permitido para cada saque será limitado a <strong>R$ 500,00 por ano</strong>.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 card-respiro shadow-sm p-4 text-center">
-                        <i class="bi bi-hourglass-split text-warning fs-1 mb-3"></i>
-                        <h4 class="fw-bold">Carência de 90 Dias</h4>
-                        <p>Novos optantes deverão aguardar <strong>3 meses</strong> antes de solicitar qualquer empréstimo.</p>
-                    </div>
-                </div>
+            <div class="animate__animated animate__zoomIn animate__delay-2s">
+                <a href="https://wa.me/5521992279948" target="_blank" class="btn-whatsapp fs-4">
+                    <i class="bi bi-whatsapp me-2"></i> Falar com Solange Ladeira no WhatsApp
+                </a>
+                <p class="mt-3 small opacity-75"><i class="bi bi-lightning-charge-fill text-warning"></i> Crédito liberado em até 24h úteis</p>
             </div>
         </div>
     </section>
 
-    <section class="py-5 bg-white">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h2 class="display-5 fw-bold mb-4">Mais que crédito, um <span class="text-primary">respiro</span> para sua família.</h2>
-                    <p class="fs-5 text-secondary">
-                        Na <strong>Poder Financeiro</strong>, nossa missão é devolver a liberdade financeira para as famílias brasileiras. 
-                        A consultoria liderada por <strong>Solange Ladeira dos Santos</strong> foca em um processo 100% digital, seguro e transparente.
-                    </p>
-                    <ul class="list-unstyled mt-4">
-                        <li class="mb-3 fs-5"><i class="bi bi-check-circle-fill text-success me-2"></i> Sem parcelas mensais pesando no bolso</li>
-                        <li class="mb-3 fs-5"><i class="bi bi-check-circle-fill text-success me-2"></i> Análise personalizada feita por especialistas</li>
-                        <li class="mb-3 fs-5"><i class="bi bi-check-circle-fill text-success me-2"></i> Atendimento humanizado via WhatsApp</li>
-                    </ul>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Regras Atuais e Futuras</h2>
+                <p class="text-muted">Entenda os limites estabelecidos pelo Governo e garanta seu direito.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 card-regra shadow-sm p-4">
+                        <i class="bi bi-calendar-x text-danger fs-1 mb-3"></i>
+                        <h5 class="fw-bold">Redução de Parcelas</h5>
+                        <p class="text-muted">A antecipação cairá de <strong>5 para 3 parcelas</strong> anuais em breve. Aproveite o limite atual agora.</p>
+                    </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1 text-center bg-light p-5 rounded-5 border shadow-sm">
-                    <i class="bi bi-person-badge text-primary" style="font-size: 6rem;"></i>
-                    <h3 class="fw-bold mt-3">Wagner</h3>
-                    <p class="text-muted">Consultoria Especializada Poder Financeiro</p>
-                    <a href="https://wa.me/5521985099389" class="btn btn-success btn-lg w-100 rounded-pill py-3 fw-bold">
-                        <i class="bi bi-whatsapp me-2"></i> Iniciar Consultoria Agora
-                    </a>
+                <div class="col-md-4">
+                    <div class="card h-100 card-regra shadow-sm p-4">
+                        <i class="bi bi-currency-dollar text-success fs-1 mb-3"></i>
+                        <h5 class="fw-bold">Teto por Parcela</h5>
+                        <p class="text-muted">O valor máximo por saque antecipado será limitado a <strong>R$ 500,00 por ano</strong>.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 card-regra shadow-sm p-4">
+                        <i class="bi bi-clock-history text-primary fs-1 mb-3"></i>
+                        <h5 class="fw-bold">Carência de Adesão</h5>
+                        <p class="text-muted">Novos optantes do Saque-Aniversário têm carência de <strong>90 dias</strong> para solicitar empréstimos.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="bg-dark text-light py-5">
-        <div class="container">
-            <div class="row text-center text-md-start">
+        <div class="container text-center text-md-start">
+            <div class="row align-items-center">
                 <div class="col-md-6 mb-4 mb-md-0">
                     <h5 class="fw-bold">Poder Financeiro</h5>
-                    <p class="small text-secondary mb-1">Consultoria: Solange Ladeira dos Santos</p>
-                    <p class="small text-secondary mb-0">CNPJ: 00.000.000/0001-00 (Exemplo)</p>
+                    <p class="small text-secondary mb-0">Consultoria: Solange Ladeira dos Santos</p>
+                    <p class="small text-secondary">Especialista em soluções de crédito e respiro financeiro.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <div class="alert alert-warning d-inline-block py-2 px-3 small">
-                        <i class="bi bi-shield-exclamation me-2"></i>
-                        <strong>CUIDADO COM GOLPES:</strong> O Poder Financeiro nunca cobra taxas antecipadas para liberação de crédito.
+                    <div class="alert alert-dark border-secondary d-inline-block py-2 px-3 small mb-0">
+                        <i class="bi bi-shield-fill-exclamation text-warning me-2"></i>
+                        O Poder Financeiro não cobra taxas antecipadas para liberação de crédito.
                     </div>
                 </div>
-            </div>
-            <hr class="my-4 border-secondary">
-            <div class="text-center text-secondary small">
-                <p>© 2026 Poder Financeiro. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/5521985099389" class="whatsapp-fixed animate__animated animate__bounceInUp" target="_blank">
+    <button id="btnAudio" class="audio-float" title="Pausar/Tocar Música da Campanha">
+        <i id="iconeAudio" class="bi bi-volume-mute-fill"></i>
+        <span class="audio-text">Ouvir música da campanha</span>
+    </button>
+    <audio id="musicaFundo" src="./A%20Chave%20do%20Respiro.mp3"></audio>
+
+    <a href="https://wa.me/5521992279948" target="_blank" class="whatsapp-float">
         <i class="bi bi-whatsapp"></i>
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
-        // Garante que o vídeo toque em dispositivos móveis que bloqueiam autoplay
         document.addEventListener('DOMContentLoaded', function() {
-            var video = document.querySelector('video');
-            video.play().catch(function(error) {
-                console.log("Autoplay bloqueado pelo navegador. O usuário precisa interagir.");
+            const audio = document.getElementById('musicaFundo');
+            const btnAudio = document.getElementById('btnAudio');
+            const iconeAudio = document.getElementById('iconeAudio');
+            
+            function atualizarIcone() {
+                if (audio.paused) {
+                    iconeAudio.classList.replace('bi-volume-up-fill', 'bi-volume-mute-fill');
+                } else {
+                    iconeAudio.classList.replace('bi-volume-mute-fill', 'bi-volume-up-fill');
+                }
+            }
+
+            btnAudio.addEventListener('click', function(e) {
+                e.stopPropagation();
+                audio.paused ? audio.play() : audio.pause();
+                atualizarIcone();
             });
+
+            // Lógica de Autoplay na primeira interação
+            document.body.addEventListener('click', () => {
+                if(audio.paused && !localStorage.getItem('musicaTocou')) {
+                    audio.play();
+                    localStorage.setItem('musicaTocou', 'true');
+                    atualizarIcone();
+                }
+            }, { once: true });
+
+            audio.addEventListener('ended', atualizarIcone);
         });
     </script>
 </body>
