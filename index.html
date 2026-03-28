@@ -72,7 +72,6 @@
             z-index: 1;
         }
 
-        /* Atua como a .carousel-caption garantindo display em bloco */
         .hero-content {
             position: relative;
             z-index: 2;
@@ -124,9 +123,15 @@
         }
 
         /* Cores de Identidade Secundárias */
-        .text-inss { color: #f68b1f; } /* Laranja INSS */
-        .text-clt { color: #0dcaf0; } /* Ciano Corporativo */
-        .text-pessoal { color: #198754; } /* Verde Liquidez (Pessoal) */
+        .text-inss { color: #f68b1f; }
+        .text-clt { color: #0dcaf0; }
+        .text-pessoal { color: #198754; }
+
+        /* Utilitários Extras */
+        .hover-white:hover {
+            color: #ffffff !important;
+            transition: color 0.3s ease;
+        }
 
         /* --- BOTÕES FLUTUANTES PRESERVADOS --- */
         .audio-float {
@@ -185,30 +190,19 @@
 
         /* --- AJUSTES RESPONSIVOS PADRÃO --- */
         @media (max-width: 768px) {
-            section,
-            header,
-            footer {
+            section, header, footer {
                 height: auto;
                 min-height: 100vh;
                 padding: 60px 0;
             }
 
-            #motivos-acao,
-            #consignado-inss,
-            #consignado-clt,
-            #credito-pessoal {
+            #motivos-acao, #consignado-inss, #consignado-clt, #credito-pessoal {
                 padding-top: 100px;
                 padding-bottom: 80px;
             }
 
-            .card-alta-conversao {
-                margin-bottom: 25px;
-            }
-
-            .display-6 {
-                font-size: 1.8rem;
-                line-height: 1.3;
-            }
+            .card-alta-conversao { margin-bottom: 25px; }
+            .display-6 { font-size: 1.8rem; line-height: 1.3; }
         }
 
         @media (max-width: 576px) {
@@ -221,46 +215,17 @@
 
         /* --- AJUSTE UI/UX: MODO PAISAGEM / LANDSCAPE EM SMARTPHONES --- */
         @media (max-height: 500px) and (orientation: landscape) {
-            /* Libera a altura fixa permitindo o scroll natural na seção hero */
-            .hero-static,
-            section,
-            header,
-            footer {
+            .hero-static, section, header, footer {
                 height: auto !important;
                 min-height: 100vh;
-                padding-top: 80px; /* Garante que a navbar não cubra o conteúdo */
+                padding-top: 80px; 
                 padding-bottom: 40px;
             }
-
-            /* Redimensionamento de Fontes para melhor fluidez horizontal */
-            .display-4, .display-5, .display-6, h2 {
-                font-size: 1.5rem !important;
-                margin-bottom: 0.5rem !important;
-            }
-
-            .lead {
-                font-size: 1rem !important;
-                margin-bottom: 1rem !important;
-            }
-
-            /* Otimização de Espaço Vertical nos componentes da Hero */
-            .hero-content {
-                padding-top: 60px;
-            }
-
-            .hero-content .badge {
-                padding: 8px 12px !important;
-                margin-bottom: 10px !important;
-                font-size: 0.75rem;
-            }
-
-            .hero-content .btn-lg {
-                padding: 10px 20px !important;
-                font-size: 1rem !important;
-                margin-bottom: 1rem !important; /* Reduz margem inferior do botão */
-            }
-
-            /* Reduz espacamentos em toda a tela para evitar rolagem excessiva */
+            .display-4, .display-5, .display-6, h2 { font-size: 1.5rem !important; margin-bottom: 0.5rem !important; }
+            .lead { font-size: 1rem !important; margin-bottom: 1rem !important; }
+            .hero-content { padding-top: 60px; }
+            .hero-content .badge { padding: 8px 12px !important; margin-bottom: 10px !important; font-size: 0.75rem; }
+            .hero-content .btn-lg { padding: 10px 20px !important; font-size: 1rem !important; margin-bottom: 1rem !important; }
             .mb-5 { margin-bottom: 1.5rem !important; }
             .mb-4 { margin-bottom: 1rem !important; }
             .pt-4, .pt-5 { padding-top: 1.5rem !important; }
@@ -632,44 +597,66 @@
         </div>
     </section>
 
-    <section class="bg-light w-100">
-        <div class="container text-center">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto">
-                    <div class="mb-4">
-                        <i class="bi bi-person-check-fill text-primary" style="font-size: 5rem;"></i>
+    <footer class="bg-dark text-light w-100 py-5" style="border-top: 4px solid var(--accent-gold); flex-direction: column;">
+        <div class="container w-100 pt-3">
+            
+            <div class="row g-5 mb-5">
+                
+                <div class="col-md-4 text-center text-md-start">
+                    <span class="fw-bold fs-3 d-flex align-items-center justify-content-center justify-content-md-start mb-3">
+                        <i class="bi bi-shield-lock-fill text-warning me-2"></i>
+                        Poder <span class="text-warning ms-1">Financeiro</span>
+                    </span>
+                    <p class="small text-secondary mb-3">Solange Ladeira dos Santos<br>CNPJ: 00.000.000/0001-00</p>
+                    <div class="badge bg-success bg-opacity-25 border border-success text-success p-2 fs-6 mb-2 shadow-sm">
+                        <i class="bi bi-patch-check-fill me-1"></i> Consultora Autorizada
                     </div>
-                    <h2 class="display-5 fw-bold mb-4">Solange Ladeira dos Santos</h2>
-                    <p class="fs-4 text-secondary mb-5">
-                        Especialista da <strong>Poder Financeiro</strong>. A nossa missão é devolver a liberdade
-                        financeira às famílias brasileiras com um processo 100% digital e seguro.
+                    <p class="small fst-italic text-secondary mt-2">"Afiada como uma tachinha"</p>
+                </div>
+
+                <div class="col-md-4 text-center text-md-start">
+                    <h5 class="fw-bold text-white mb-4">Soluções Rápidas</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="#motivos-acao" class="text-secondary text-decoration-none hover-white"><i class="bi bi-chevron-right small text-warning me-1"></i> Antecipação FGTS</a></li>
+                        <li class="mb-3"><a href="#consignado-inss" class="text-secondary text-decoration-none hover-white"><i class="bi bi-chevron-right small text-warning me-1"></i> Consignado INSS</a></li>
+                        <li class="mb-3"><a href="#consignado-clt" class="text-secondary text-decoration-none hover-white"><i class="bi bi-chevron-right small text-warning me-1"></i> Consignado CLT</a></li>
+                        <li class="mb-3"><a href="#credito-pessoal" class="text-secondary text-decoration-none hover-white"><i class="bi bi-chevron-right small text-warning me-1"></i> Crédito Pessoal</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 text-center text-md-start">
+                    <h5 class="fw-bold text-white mb-4">Transparência Total</h5>
+                    <div class="alert alert-dark border-danger bg-transparent text-light p-3 small mb-3">
+                        <i class="bi bi-exclamation-triangle-fill text-danger fs-5 d-block mb-2"></i>
+                        <strong class="text-danger">CUIDADO COM GOLPES:</strong><br> Não cobramos nenhum tipo de taxa antecipada para liberação de crédito.
+                    </div>
+                    <p class="small text-secondary mb-0">
+                        <i class="bi bi-info-circle me-1"></i> Operação em estrita conformidade com a Resolução CCFGTS nº 1.130/2025.
                     </p>
+                </div>
+            </div>
+
+            <hr class="border-secondary mb-5 opacity-25">
+
+            <div class="row text-center align-items-center">
+                <div class="col-12">
+                    <h3 class="fw-bold text-white mb-4 h4">Ainda com dúvidas? Garanta seu respiro financeiro agora antes que as regras mudem em 2026.</h3>
                     <div class="d-flex justify-content-center">
-                        <a href="https://wa.me/5521992279948" target="_blank"
-                            class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
-                            <i class="bi bi-whatsapp fs-4 me-2"></i> Falar com a Solange
+                        <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mt-2 mb-4 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                            <i class="bi bi-whatsapp fs-4 me-2"></i> Falar com a Solange Agora
                         </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <footer class="bg-dark text-light w-100">
-        <div class="container text-center text-md-start">
-            <div class="row align-items-center">
-                <div class="col-md-6 mb-4">
-                    <h5 class="fw-bold text-white">Poder Financeiro</h5>
-                    <p class="small text-secondary mb-0">Consultoria: Solange Ladeira dos Santos</p>
-                    <p class="small text-secondary">Aprovação sujeita à análise de crédito e margem disponível.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <div class="alert alert-dark border-secondary d-inline-block py-2 px-4 small mb-0 shadow-sm">
-                        <i class="bi bi-shield-fill-check text-warning me-2"></i>
-                        Atenção: Não cobramos taxas antecipadas para liberação.
-                    </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <a href="#" class="text-secondary fs-4 me-3 text-decoration-none hover-white"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-secondary fs-4 text-decoration-none hover-white"><i class="bi bi-facebook"></i></a>
+                    <p class="small text-secondary mt-4 mb-0">&copy; 2026 Poder Financeiro. Todos os direitos reservados.</p>
                 </div>
             </div>
+            
         </div>
     </footer>
 
