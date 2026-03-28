@@ -35,7 +35,6 @@
             height: 100vh;
         }
 
-        /* Configuração Base das Secções Full Height */
         section, header, footer {
             scroll-snap-align: start;
             scroll-snap-stop: always;
@@ -63,6 +62,8 @@
         .btn-nav-audio {
             animation: navAudioPulse 2s infinite;
             transition: all 0.3s ease-in-out;
+            /* Garante que o conteúdo interno não quebre de forma indesejada */
+            white-space: nowrap; 
         }
 
         .btn-nav-audio:hover {
@@ -70,7 +71,6 @@
             transform: scale(1.05);
         }
 
-        /* Ajustes de hover para os links do menu */
         .navbar-nav .nav-link {
             transition: color 0.3s ease;
         }
@@ -152,7 +152,6 @@
 
         .hover-white:hover {
             color: #ffffff !important;
-            transition: color 0.3s ease;
         }
 
         /* --- BOTÃO FLUTUANTE DO WHATSAPP --- */
@@ -214,9 +213,16 @@
             .hero-content { padding-top: 60px; }
             .hero-content .badge { padding: 8px 12px !important; margin-bottom: 10px !important; font-size: 0.75rem; }
             .hero-content .btn-lg { padding: 10px 20px !important; font-size: 1rem !important; margin-bottom: 1rem !important; }
-            .mb-5 { margin-bottom: 1.5rem !important; }
-            .mb-4 { margin-bottom: 1rem !important; }
-            .pt-4, .pt-5 { padding-top: 1.5rem !important; }
+            
+            /* Melhorias específicas para o Botão de Áudio em Landscape */
+            .btn-nav-audio {
+                min-width: 90px;
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+            .btn-nav-audio span.d-lg-none {
+                font-size: 0.70rem !important; /* Redução para higiene visual */
+            }
         }
     </style>
 </head>
@@ -237,10 +243,10 @@
                 </div>
 
                 <div class="col-4 px-0 d-flex justify-content-center mx-auto">
-                    <button id="btnAudio" class="btn btn-warning rounded-pill shadow-lg p-1 px-md-4 py-md-2 d-flex align-items-center btn-nav-audio" title="Ouvir mensagem de Solange" aria-label="Tocar mensagem">
-                        <i id="iconeAudio" class="bi bi-volume-up-fill fs-6 fs-lg-5 me-1 me-md-2"></i>
+                    <button id="btnAudio" class="btn btn-warning rounded-pill shadow-lg px-3 py-2 d-inline-flex align-items-center justify-content-center btn-nav-audio" title="Ouvir mensagem de Solange" aria-label="Tocar mensagem">
+                        <i id="iconeAudio" class="bi bi-volume-up-fill fs-6 fs-lg-5 me-1 me-md-2 mb-0"></i>
                         <span class="fw-bold text-dark d-none d-lg-inline" style="letter-spacing: 0.5px;">OUVIR MENSAGEM</span>
-                        <span class="fw-bold text-dark d-inline d-lg-none" style="font-size: 0.75rem;">OUVIR</span>
+                        <span class="fw-bold text-dark d-inline d-lg-none" style="font-size: 0.85rem;">OUVIR</span>
                     </button>
                 </div>
 
@@ -259,6 +265,15 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+
+            <div class="collapse navbar-collapse d-lg-none mt-3" id="navbarLinksMobile">
+                <ul class="navbar-nav ms-auto mb-2 fw-semibold text-center pb-2">
+                    <li class="nav-item mb-3"><a class="nav-link text-white fs-5" href="#motivos-acao">Antecipação FGTS</a></li>
+                    <li class="nav-item mb-3"><a class="nav-link text-white fs-5" href="#consignado-inss">Consignado INSS</a></li>
+                    <li class="nav-item mb-3"><a class="nav-link text-white fs-5" href="#consignado-clt">Consignado CLT</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link text-white fs-5" href="#credito-pessoal">Crédito Pessoal</a></li>
+                </ul>
             </div>
 
         </div>
@@ -577,12 +592,10 @@
             const btnAudio = document.getElementById('btnAudio');
             const iconeAudio = document.getElementById('iconeAudio');
 
-            // Garante reprodução única
             audio.loop = false;
 
-            // Função centralizada para gerenciar o ícone atualizado com as classes baseadas no mobile
             function atualizarIcone() {
-                const classesBase = 'fs-6 fs-lg-5 me-1 me-md-2'; // Mantém as proporções do botão no update
+                const classesBase = 'fs-6 fs-lg-5 me-1 me-md-2 mb-0';
                 if (audio.ended) {
                     iconeAudio.className = `bi bi-arrow-clockwise ${classesBase}`;
                 } else if (audio.paused) {
@@ -592,7 +605,6 @@
                 }
             }
 
-            // Controle do botão de áudio no Header
             btnAudio.addEventListener('click', function (e) {
                 e.stopPropagation(); 
                 if (audio.ended) {
@@ -610,7 +622,6 @@
                 atualizarIcone();
             });
 
-            // Autoplay na primeira interação
             document.body.addEventListener('click', () => {
                 if (audio.paused && !localStorage.getItem('musicaTocou') && !audio.ended) {
                     audio.play();
@@ -619,7 +630,6 @@
                 }
             }, { once: true }); 
             
-            // Fecha o menu Mobile ao clicar em um link
             const navLinks = document.querySelectorAll('.nav-link');
             const menuToggle = document.getElementById('navbarLinksMobile');
             if(menuToggle) {
