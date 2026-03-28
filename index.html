@@ -34,7 +34,7 @@
             height: 100vh;
         }
 
-        /* Configuração das Secções Full Height */
+        /* Configuração Base das Secções Full Height */
         section, header, footer {
             scroll-snap-align: start;
             scroll-snap-stop: always;
@@ -75,17 +75,23 @@
             padding: 0 1.5rem;
         }
 
-        /* --- SECÇÃO DE ALTA CONVERSÃO (CARDS) --- */
+        /* --- SECÇÃO DE ALTA CONVERSÃO (#motivos-acao) --- */
+        #motivos-acao {
+            padding-top: 80px; /* Respiro essencial contra a navbar */
+            padding-bottom: 40px;
+        }
+
         .card-alta-conversao {
             border: none;
             border-radius: 16px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            margin-top: 15px; 
+            margin-top: 20px; 
             background: #fff;
         }
+        
         .card-alta-conversao:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
         }
         
         .icon-gatilho {
@@ -105,6 +111,7 @@
             font-weight: 700;
             border: 2px solid #fff;
             z-index: 2;
+            white-space: nowrap;
         }
 
         /* --- BOTÕES DE CONVERSÃO --- */
@@ -137,6 +144,7 @@
             animation: pulse-green 2s infinite;
             transition: all 0.3s ease;
         }
+        
         .btn-pulse-urgencia:hover {
             background-color: #1EBE5D;
             color: #fff;
@@ -195,18 +203,25 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
         }
 
-        /* Ajustes Responsivos */
+        /* --- AJUSTES RESPONSIVOS --- */
         @media (max-width: 768px) {
             section, header, footer { height: auto; min-height: 100vh; padding: 60px 0; }
+            #motivos-acao { padding-top: 100px; } /* Maior respiro no topo para mobile */
             .card-alta-conversao { margin-bottom: 25px; }
+            .display-6 { font-size: 1.8rem; line-height: 1.3; }
         }
         @media (max-width: 576px) {
             .display-4 { font-size: 2rem !important; }
             .lead { font-size: 1.1rem; }
             .audio-float .audio-text { display: none; }
             .audio-float { width: 55px; height: 55px; padding: 0; }
+            .whatsapp-float { width: 55px; height: 55px; font-size: 30px; }
         }
     </style>
 </head>
@@ -230,25 +245,29 @@
         </video>
         <div class="video-overlay"></div>
         <div class="container hero-content text-center text-white">
-            <div class="badge bg-danger p-3 rounded-pill mb-4 animate__animated animate__fadeInDown">
+            <div class="badge bg-danger p-3 rounded-pill mb-4 animate__animated animate__fadeInDown shadow">
                 ALERTA: RESOLUÇÃO CCFGTS nº 1.130/2025
             </div>
             <h1 class="display-4 fw-bold mb-4">Antecipe <span class="text-warning">5 Anos do seu FGTS</span> Hoje!</h1>
             <p class="lead mb-5 opacity-90">Em novembro de 2026, o seu limite cairá para apenas 3 parcelas. Não deixe o governo travar o seu dinheiro.</p>
-            <a href="https://wa.me/5521992279948" target="_blank" class="btn-whatsapp fs-4">Quero o meu Respiro Financeiro</a>
+            <a href="https://wa.me/5521992279948" target="_blank" class="btn-whatsapp fs-4 shadow-lg">Quero o meu Respiro Financeiro</a>
         </div>
     </header>
 
     <section class="bg-light w-100" id="motivos-acao">
-        <div class="container">
+        <div class="container pt-4">
+            
             <div class="text-center mb-5">
-                <h2 class="display-6 fw-bold text-dark mb-3">O Tempo Está Contra Si</h2>
+                <h2 class="display-6 fw-bold text-dark mb-4">
+                    Garanta o seu respiro financeiro hoje antes que as regras mudem
+                </h2>
                 <p class="fs-5 text-muted px-md-5 mx-md-5">
-                    A Resolução CCFGTS nº 1.130/2025 vai travar o seu dinheiro. Entenda por que esperar é o maior erro financeiro que pode cometer hoje.
+                    A <strong class="text-danger">Resolução CCFGTS nº 1.130/2025</strong> vai limitar severamente o seu direito de saque. Entenda por que esperar é o maior erro financeiro que pode cometer hoje.
                 </p>
             </div>
 
             <div class="row justify-content-center px-2 px-md-0">
+                
                 <div class="col-md-4 mb-4">
                     <div class="card card-alta-conversao shadow-lg h-100 px-3 py-4 text-center border-0">
                         <span class="badge rounded-pill bg-danger badge-alerta shadow-sm">
@@ -258,7 +277,7 @@
                             <i class="bi bi-alarm text-primary icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">O Limite Vai Despencar</h4>
                             <p class="card-text text-secondary">
-                                Em 1º de novembro de 2026, o seu direito de antecipação sofrerá um corte drástico: o limite <strong>cairá de 5 para apenas 3 parcelas anuais</strong>. A janela para sacar o valor máximo está a fechar-se rapidamente.
+                                Em 1º de novembro de 2026, o seu direito sofrerá um corte drástico: o limite <strong>cairá de 5 para apenas 3 parcelas anuais</strong>. A janela para sacar o valor máximo está a fechar-se rapidamente.
                             </p>
                         </div>
                     </div>
@@ -273,7 +292,7 @@
                             <i class="bi bi-graph-down text-primary icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">Bloqueio de Valores</h4>
                             <p class="card-text text-secondary">
-                                A nova lei crava um <strong>teto de R$ 500,00</strong> por parcela antecipada e impõe uma <strong>carência de 90 dias</strong> para novos optantes. O custo de oportunidade de deixar o seu dinheiro parado ficará altíssimo.
+                                A nova lei crava um <strong>teto de R$ 500,00</strong> por parcela antecipada e impõe uma <strong>carência de 90 dias</strong> para novos optantes. Deixar o seu dinheiro parado custará caro.
                             </p>
                         </div>
                     </div>
@@ -288,16 +307,17 @@
                             <i class="bi bi-lightning-charge text-primary icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">Respiro Sem Dívidas</h4>
                             <p class="card-text text-secondary">
-                                Antecipar agora garante dinheiro na sua conta em <strong>até 1 dia útil</strong>. O melhor de tudo? Não compromete a sua renda mensal com boletos. É o alívio limpo e imediato que a sua família precisa.
+                                Antecipar agora garante dinheiro na sua conta em <strong>até 1 dia útil</strong>. Sem comprometer a sua renda mensal com boletos, é o alívio limpo que a sua família precisa hoje.
                             </p>
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <div class="row mt-4 text-center">
                 <div class="col-12">
-                    <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-lg btn-pulse-urgencia shadow-lg px-5 py-3">
+                    <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-lg btn-pulse-urgencia shadow-lg px-4 py-3">
                         <i class="bi bi-whatsapp fs-4 me-2 align-middle"></i> 
                         Garantir o Meu Valor Máximo com Solange Ladeira
                     </a>
@@ -307,6 +327,7 @@
                     </p>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -321,7 +342,7 @@
                     <p class="fs-4 text-secondary mb-5">
                         Especialista da <strong>Poder Financeiro</strong>. A nossa missão é devolver a liberdade financeira às famílias brasileiras com um processo 100% digital e seguro.
                     </p>
-                    <a href="https://wa.me/5521992279948" target="_blank" class="btn-whatsapp fs-4">Falar com a Solange Agora</a>
+                    <a href="https://wa.me/5521992279948" target="_blank" class="btn-whatsapp fs-4 shadow-sm">Falar com a Solange Agora</a>
                 </div>
             </div>
         </div>
@@ -336,7 +357,7 @@
                     <p class="small text-secondary">Dinheiro na conta em até 1 dia útil após a aprovação.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <div class="alert alert-dark border-secondary d-inline-block py-2 px-4 small mb-0">
+                    <div class="alert alert-dark border-secondary d-inline-block py-2 px-4 small mb-0 shadow-sm">
                         <i class="bi bi-shield-fill-check text-warning me-2"></i>
                         Não cobramos taxas antecipadas para liberação.
                     </div>
@@ -351,7 +372,7 @@
     </button>
     <audio id="musicaFundo" src="./A%20Chave%20do%20Respiro.mp3"></audio>
 
-    <a href="https://wa.me/5521992279948" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/5521992279948" target="_blank" class="whatsapp-float shadow-lg">
         <i class="bi bi-whatsapp"></i>
     </a>
 
