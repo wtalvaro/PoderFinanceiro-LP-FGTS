@@ -121,17 +121,20 @@
       }
 
       /* Responsividade para o botão de áudio em telas muito pequenas */
-      @media (max-width: 400px) {
-        .audio-float .audio-text {
-          display: none; /* Esconde o texto, deixa só o ícone em celulares mini */
-        }
+/* Responsividade para o botão de áudio no celular */
+      @media (max-width: 600px) {
         .audio-float {
-          width: 55px;
-          height: 55px;
-          padding: 0;
+          padding: 8px 12px; /* Deixa o botão um pouco mais fino */
+          bottom: 20px;
+          left: 15px; /* Chega um pouco mais para o canto */
         }
         .audio-float i {
-            font-size: 28px;
+            font-size: 18px; /* Ícone um pouco menor */
+        }
+        .audio-float .audio-text {
+          display: inline-block; /* Garante que o texto continue aparecendo! */
+          font-size: 11px; /* Letra menor para caber bem na tela */
+          margin-left: 6px;
         }
       }
     </style>
