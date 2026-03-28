@@ -18,7 +18,7 @@
             --whatsapp-hover: #1ebe5d;
         }
 
-        /* --- LOGICA DE SCROLL SNAPPING --- */
+        /* --- LÓGICA DE SCROLL SNAPPING --- */
         html, body {
             height: 100%;
             margin: 0;
@@ -29,26 +29,25 @@
         body {
             font-family: 'Segoe UI', Roboto, sans-serif;
             color: var(--primary-blue);
-            /* Ativa o travamento de rolagem vertical no container pai */
             scroll-snap-type: y mandatory;
             overflow-y: scroll;
             height: 100vh;
         }
 
-        /* Configuração das Seções Full Height */
+        /* Configuração das Secções Full Height */
         section, header, footer {
-            scroll-snap-align: start; /* Onde a rolagem 'trava' */
+            scroll-snap-align: start;
             scroll-snap-stop: always;
-            height: 100vh; /* Ocupa 100% da tela */
+            min-height: 100vh; 
             width: 100%;
             display: flex;
-            align-items: center; /* Centralização Vertical */
-            justify-content: center; /* Centralização Horizontal */
+            align-items: center; 
+            justify-content: center; 
             position: relative;
             overflow: hidden;
         }
 
-        /* --- HERO & VIDEO --- */
+        /* --- HERO & VÍDEO --- */
         .video-bg {
             position: absolute;
             top: 0;
@@ -76,7 +75,39 @@
             padding: 0 1.5rem;
         }
 
-        /* --- COMPONENTES DE CONVERSÃO --- */
+        /* --- SECÇÃO DE ALTA CONVERSÃO (CARDS) --- */
+        .card-alta-conversao {
+            border: none;
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            margin-top: 15px; 
+            background: #fff;
+        }
+        .card-alta-conversao:hover {
+            transform: translateY(-10px);
+        }
+        
+        .icon-gatilho {
+            font-size: 2.5rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .badge-alerta {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85rem;
+            padding: 8px 16px !important;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            border: 2px solid #fff;
+            z-index: 2;
+        }
+
+        /* --- BOTÕES DE CONVERSÃO --- */
         .btn-whatsapp {
             background-color: var(--whatsapp-green);
             border: none;
@@ -96,16 +127,29 @@
             color: white;
         }
 
-        .card-snap {
-            border: none;
-            border-bottom: 5px solid var(--accent-gold);
-            background: #fff;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        .btn-pulse-urgencia {
+            background-color: #25D366;
+            border-color: #25D366;
+            color: #fff;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            border-radius: 50px;
+            animation: pulse-green 2s infinite;
+            transition: all 0.3s ease;
+        }
+        .btn-pulse-urgencia:hover {
+            background-color: #1EBE5D;
+            color: #fff;
+            transform: scale(1.02);
+        }
+        
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* --- BOTÃO DE ÁUDIO (PRESERVADO) --- */
+        /* --- BOTÕES FLUTUANTES PRESERVADOS --- */
         .audio-float {
             position: fixed;
             bottom: 25px;
@@ -123,9 +167,17 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        .audio-text { font-size: 14px; font-weight: 600; margin-left: 10px; }
+        .audio-float .audio-text {
+            font-size: 14px;
+            font-weight: 600;
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+        .audio-float:hover {
+            background-color: #5a6268;
+            transform: scale(1.05);
+        }
 
-        /* WhatsApp Flutuante */
         .whatsapp-float {
             position: fixed;
             width: 65px;
@@ -146,29 +198,33 @@
         }
 
         /* Ajustes Responsivos */
+        @media (max-width: 768px) {
+            section, header, footer { height: auto; min-height: 100vh; padding: 60px 0; }
+            .card-alta-conversao { margin-bottom: 25px; }
+        }
         @media (max-width: 576px) {
             .display-4 { font-size: 2rem !important; }
             .lead { font-size: 1.1rem; }
-            .audio-text { display: none; }
+            .audio-float .audio-text { display: none; }
             .audio-float { width: 55px; height: 55px; padding: 0; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar bg-white fixed-top shadow-sm py-3">
+    <nav class="navbar bg-white fixed-top shadow-sm py-3" style="z-index: 1050;">
         <div class="container d-flex justify-content-between">
             <span class="navbar-brand fw-bold fs-4 d-flex align-items-center">
                 <i class="bi bi-shield-lock-fill text-primary me-2"></i>
                 Poder <span class="text-primary ms-1">Financeiro</span>
             </span>
-            <a href="https://wa.me/5521992279948" class="btn btn-outline-success rounded-pill fw-bold d-none d-md-block">
+            <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-outline-success rounded-pill fw-bold d-none d-md-block">
                 Falar com Solange
             </a>
         </div>
     </nav>
 
-    <header class="hero-static">
+    <header class="hero-static bg-dark">
         <video class="video-bg" autoplay muted loop playsinline>
             <source src="./A_Chave_do_Respiro_Video.mp4" type="video/mp4">
         </video>
@@ -178,34 +234,83 @@
                 ALERTA: RESOLUÇÃO CCFGTS nº 1.130/2025
             </div>
             <h1 class="display-4 fw-bold mb-4">Antecipe <span class="text-warning">5 Anos do seu FGTS</span> Hoje!</h1>
-            <p class="lead mb-5 opacity-90">Em novembro de 2026, seu limite cairá para apenas 3 parcelas. Não deixe o governo travar o seu dinheiro.</p>
-            <a href="https://wa.me/5521992279948" target="_blank" class="btn-whatsapp fs-4">Quero meu Respiro Financeiro</a>
+            <p class="lead mb-5 opacity-90">Em novembro de 2026, o seu limite cairá para apenas 3 parcelas. Não deixe o governo travar o seu dinheiro.</p>
+            <a href="https://wa.me/5521992279948" target="_blank" class="btn-whatsapp fs-4">Quero o meu Respiro Financeiro</a>
         </div>
     </header>
 
-    <section class="bg-light">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-5">Por que agir agora?</h2>
-            <div class="row g-4 text-start">
-                <div class="col-md-6">
-                    <div class="card-snap">
-                        <i class="bi bi-graph-down-arrow text-danger fs-1 mb-3"></i>
-                        <h4 class="fw-bold">Redução de Parcelas</h4>
-                        <p class="text-muted">A antecipação cai de 5 para 3 parcelas anuais. O tempo para o saque máximo está acabando.</p>
+    <section class="bg-light w-100" id="motivos-acao">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold text-dark mb-3">O Tempo Está Contra Si</h2>
+                <p class="fs-5 text-muted px-md-5 mx-md-5">
+                    A Resolução CCFGTS nº 1.130/2025 vai travar o seu dinheiro. Entenda por que esperar é o maior erro financeiro que pode cometer hoje.
+                </p>
+            </div>
+
+            <div class="row justify-content-center px-2 px-md-0">
+                <div class="col-md-4 mb-4">
+                    <div class="card card-alta-conversao shadow-lg h-100 px-3 py-4 text-center border-0">
+                        <span class="badge rounded-pill bg-danger badge-alerta shadow-sm">
+                            <i class="bi bi-exclamation-triangle-fill me-1"></i> ALERTA DE PRAZO
+                        </span>
+                        <div class="card-body">
+                            <i class="bi bi-alarm text-primary icon-gatilho"></i>
+                            <h4 class="card-title fw-bold text-dark mb-3">O Limite Vai Despencar</h4>
+                            <p class="card-text text-secondary">
+                                Em 1º de novembro de 2026, o seu direito de antecipação sofrerá um corte drástico: o limite <strong>cairá de 5 para apenas 3 parcelas anuais</strong>. A janela para sacar o valor máximo está a fechar-se rapidamente.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card-snap">
-                        <i class="bi bi-cash-stack text-success fs-1 mb-3"></i>
-                        <h4 class="fw-bold">Teto de R$ 500,00</h4>
-                        <p class="text-muted">Cada parcela antecipada terá o limite máximo de R$ 500,00 por ano. Antecipe o valor total agora.</p>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card card-alta-conversao shadow-lg h-100 px-3 py-4 text-center border-0">
+                        <span class="badge rounded-pill bg-warning text-dark badge-alerta shadow-sm">
+                            <i class="bi bi-lock-fill me-1"></i> TETO APROVADO
+                        </span>
+                        <div class="card-body">
+                            <i class="bi bi-graph-down text-primary icon-gatilho"></i>
+                            <h4 class="card-title fw-bold text-dark mb-3">Bloqueio de Valores</h4>
+                            <p class="card-text text-secondary">
+                                A nova lei crava um <strong>teto de R$ 500,00</strong> por parcela antecipada e impõe uma <strong>carência de 90 dias</strong> para novos optantes. O custo de oportunidade de deixar o seu dinheiro parado ficará altíssimo.
+                            </p>
+                        </div>
                     </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card card-alta-conversao shadow-lg h-100 px-3 py-4 text-center border-0">
+                        <span class="badge rounded-pill bg-success badge-alerta shadow-sm">
+                            <i class="bi bi-check-circle-fill me-1"></i> LIBERAÇÃO RÁPIDA
+                        </span>
+                        <div class="card-body">
+                            <i class="bi bi-lightning-charge text-primary icon-gatilho"></i>
+                            <h4 class="card-title fw-bold text-dark mb-3">Respiro Sem Dívidas</h4>
+                            <p class="card-text text-secondary">
+                                Antecipar agora garante dinheiro na sua conta em <strong>até 1 dia útil</strong>. O melhor de tudo? Não compromete a sua renda mensal com boletos. É o alívio limpo e imediato que a sua família precisa.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4 text-center">
+                <div class="col-12">
+                    <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-lg btn-pulse-urgencia shadow-lg px-5 py-3">
+                        <i class="bi bi-whatsapp fs-4 me-2 align-middle"></i> 
+                        Garantir o Meu Valor Máximo com Solange Ladeira
+                    </a>
+                    <p class="mt-3 small text-muted">
+                        <i class="bi bi-shield-lock-fill text-success me-1"></i> 
+                        Atendimento 100% seguro. Sujeito a análise de margem.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-white">
+    <section class="bg-white w-100">
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col-lg-8 mx-auto">
@@ -214,15 +319,15 @@
                     </div>
                     <h2 class="display-5 fw-bold mb-4">Solange Ladeira dos Santos</h2>
                     <p class="fs-4 text-secondary mb-5">
-                        Especialista da <strong>Poder Financeiro</strong>. Nossa missão é devolver a liberdade financeira para as famílias brasileiras com um processo 100% digital e seguro.
+                        Especialista da <strong>Poder Financeiro</strong>. A nossa missão é devolver a liberdade financeira às famílias brasileiras com um processo 100% digital e seguro.
                     </p>
-                    <a href="https://wa.me/5521992279948" target="_blank" class="btn-whatsapp fs-4">Falar com Solange Agora</a>
+                    <a href="https://wa.me/5521992279948" target="_blank" class="btn-whatsapp fs-4">Falar com a Solange Agora</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-dark text-light">
+    <footer class="bg-dark text-light w-100">
         <div class="container text-center text-md-start">
             <div class="row align-items-center">
                 <div class="col-md-6 mb-4">
@@ -240,7 +345,7 @@
         </div>
     </footer>
 
-    <button id="btnAudio" class="audio-float" title="Ouvir música da campanha">
+    <button id="btnAudio" class="audio-float" title="Pausar/Tocar Música da Campanha" aria-label="Controle de Música da Campanha">
         <i id="iconeAudio" class="bi bi-volume-mute-fill"></i>
         <span class="audio-text">Ouvir música da campanha</span>
     </button>
