@@ -85,18 +85,16 @@
         background-color: var(--cor-whatsapp-hover);
         color: white;
       }
-      /* Botão Flutuante de Áudio */
+
+      /* --- NOVO: Botão Flutuante de Áudio (Estilo Cápsula Evidente) --- */
       .audio-float {
         position: fixed;
-        width: 55px;
-        height: 55px;
         bottom: 25px;
         left: 25px; /* Fica no lado esquerdo */
         background-color: #6c757d; /* Cor neutra para não competir com o WhatsApp */
         color: #FFF;
-        border-radius: 50px;
-        text-align: center;
-        font-size: 28px;
+        border-radius: 50px; /* Formato cápsula */
+        padding: 12px 20px;
         box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
         z-index: 1000;
         display: flex;
@@ -105,10 +103,36 @@
         border: none;
         cursor: pointer;
         transition: all 0.3s;
+        text-decoration: none;
+        font-family: inherit;
       }
       .audio-float:hover {
         background-color: #5a6268;
         transform: scale(1.05);
+      }
+      .audio-float i {
+        font-size: 20px;
+      }
+      .audio-float .audio-text {
+        font-size: 14px;
+        font-weight: 600;
+        margin-left: 10px;
+        white-space: nowrap; /* Impede que o texto quebre linha */
+      }
+
+      /* Responsividade para o botão de áudio em telas muito pequenas */
+      @media (max-width: 400px) {
+        .audio-float .audio-text {
+          display: none; /* Esconde o texto, deixa só o ícone em celulares mini */
+        }
+        .audio-float {
+          width: 55px;
+          height: 55px;
+          padding: 0;
+        }
+        .audio-float i {
+            font-size: 28px;
+        }
       }
     </style>
   </head>
@@ -224,11 +248,11 @@
             </ul>
           </div>
           <div class="col-lg-4 text-center">
-             <div class="bg-white p-4 rounded-circle shadow-sm d-inline-block mb-3 border">
-               <i class="bi bi-shield-check text-primary" style="font-size: 5rem;"></i>
-             </div>
-             <h4 class="fw-bold">Solange Ladeira</h4>
-             <span class="badge bg-dark">Consultora Autorizada</span>
+              <div class="bg-white p-4 rounded-circle shadow-sm d-inline-block mb-3 border">
+                <i class="bi bi-shield-check text-primary" style="font-size: 5rem;"></i>
+              </div>
+              <h4 class="fw-bold">Solange Ladeira</h4>
+              <span class="badge bg-dark">Consultora Autorizada</span>
           </div>
         </div>
       </div>
@@ -259,15 +283,19 @@
       </div>
     </footer>
 
+    <button id="btnAudio" class="audio-float" title="Pausar/Tocar Música da Campanha" aria-label="Controle de Música da Campanha">
+      <i id="iconeAudio" class="bi bi-volume-mute-fill"></i>
+      <span class="audio-text">Ouvir música da campanha</span>
+    </button>
+
+    <audio id="musicaFundo" src="./A%20Cangaceira%20do%20Capital%20(1).mp3"></audio>
+
     <a href="https://wa.me/5521992279948" target="_blank" class="whatsapp-float" title="Falar com Solange no WhatsApp" aria-label="Falar com Solange no WhatsApp">
       <i class="bi bi-whatsapp"></i>
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <button id="btnAudio" class="audio-float" title="Pausar/Tocar Música" aria-label="Controle de Música">
-      <i id="iconeAudio" class="bi bi-volume-mute-fill"></i>
-    </button>
-    <audio id="musicaFundo" src="./A%20Cangaceira%20do%20Capital%20(1).mp3"></audio>
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const audio = document.getElementById('musicaFundo');
@@ -286,7 +314,7 @@
           }
         }
 
-        // Evento de clique no botão de áudio
+        // Evento de clique no botão de áudio (Cápsula)
         btnAudio.addEventListener('click', function(e) {
           e.stopPropagation(); // Evita que o clique dispare eventos da página
           if (audio.paused) {
@@ -299,6 +327,7 @@
 
         // Lógica de Autoplay (tenta tocar apenas se for a primeira visita)
         if (!jaTocou) {
+          // Tenta iniciar a música automaticamente (navegadores podem bloquear)
           const playPromise = audio.play();
 
           if (playPromise !== undefined) {
@@ -308,14 +337,16 @@
               atualizarIcone();
             }).catch(error => {
               // Navegador bloqueou, aguarda o primeiro clique na página
-              console.log("Autoplay bloqueado pelo navegador. Aguardando interação.");
+              console.log("Autoplay bloqueado pelo navegador. Aguardando interação do usuário.");
               
               function iniciarAudio() {
                 audio.play();
                 localStorage.setItem('musicaTocouPoderFinanceiro', 'true');
                 atualizarIcone();
+                // Remove o evento para não tentar tocar de novo nos próximos cliques
                 document.body.removeEventListener('click', iniciarAudio);
               }
+              // Fallback: Toca na primeira vez que o usuário interagir com o site
               document.body.addEventListener('click', iniciarAudio, { once: true });
             });
           }
