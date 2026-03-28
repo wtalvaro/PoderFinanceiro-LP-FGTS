@@ -21,30 +21,25 @@
         body {
             font-family: 'Segoe UI', Roboto, sans-serif;
             color: var(--primary-blue);
-            padding-top: 76px; /* Compensação da navbar fixa */
+            padding-top: 76px;
         }
 
-        /* --- UI/UX: HERO SECTION COM ALINHAMENTO VERTICAL PERFEITO --- */
-        .hero-video-container {
+        /* --- REFATORAÇÃO: SEÇÃO HERO COM ALTURA ESTÁTICA --- */
+        .hero-static-section {
             position: relative;
-            min-height: calc(100vh - 76px); /* Ocupa a tela cheia descontando a navbar */
-            display: flex;
-            align-items: center; /* Centralização Vertical */
-            justify-content: center; /* Centralização Horizontal */
+            height: 650px; /* ALTURA FIXA OBRIGATÓRIA */
+            width: 100%;
             overflow: hidden;
             background-color: #000;
         }
 
         .video-bg {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Garante que o vídeo preencha a altura fixa sem distorcer */
             z-index: 0;
         }
 
@@ -54,13 +49,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.65); /* Overlay para legibilidade */
+            background: rgba(0, 0, 0, 0.65);
             z-index: 1;
         }
 
-        .hero-content {
+        /* Centralização Vertical Absoluta usando Flexbox */
+        .hero-container-flex {
             position: relative;
             z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: center; /* Centraliza Verticalmente */
+            justify-content: center; /* Centraliza Horizontalmente */
+        }
+
+        .hero-content {
             width: 100%;
             padding: 2rem;
         }
@@ -92,7 +95,7 @@
         }
         .card-regra:hover { transform: translateY(-5px); }
 
-        /* --- MANUTENÇÃO DO BOTÃO DE ÁUDIO (ESTILO ANTERIOR PRESERVADO) --- */
+        /* --- BOTÃO DE ÁUDIO PRESERVADO --- */
         .audio-float {
             position: fixed;
             bottom: 25px;
@@ -112,7 +115,6 @@
         }
         .audio-text { font-size: 14px; font-weight: 600; margin-left: 10px; }
 
-        /* WhatsApp Flutuante */
         .whatsapp-float {
             position: fixed;
             width: 65px;
@@ -132,25 +134,13 @@
             text-decoration: none;
         }
 
-/* Ajuste para textos não estourarem no mobile */
-    @media (max-width: 576px) {
-        .display-4 {
-            font-size: 1.8rem !important; /* Diminui o título no celular */
-            line-height: 1.3;
+        @media (max-width: 576px) {
+            .hero-static-section { height: 600px; } /* Altura levemente menor para mobile, mas ainda fixa */
+            .display-4 { font-size: 1.8rem !important; line-height: 1.3; }
+            .badge { white-space: normal !important; max-width: 90%; }
+            .audio-text { display: none; }
+            .audio-float { width: 55px; height: 55px; padding: 0; }
         }
-        .lead {
-            font-size: 1.1rem !important; /* Ajusta o subtexto */
-        }
-        .badge {
-            white-space: normal !important; /* Permite que o alerta quebre em 2 linhas se necessário */
-            max-width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .hero-content {
-            padding: 1rem; /* Menos recuo lateral no celular */
-        }
-    }
     </style>
 </head>
 <body>
@@ -170,30 +160,32 @@
         </div>
     </nav>
 
-    <section class="hero-video-container d-flex align-items-center justify-content-center">
+    <section class="hero-static-section">
         <video class="video-bg" autoplay muted loop playsinline>
             <source src="./A_Chave_do_Respiro_Video.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
 
-        <div class="container hero-content text-center text-white">
-            <div class="badge bg-danger p-3 rounded-pill mb-4 animate__animated animate__fadeInDown shadow" style="display: inline-block;">
-                <i class="bi bi-exclamation-triangle-fill me-2"></i> 
-                ALERTA: RESOLUÇÃO CCFGTS nº 1.130/2025
-            </div>
-            
-            <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInUp">
-                Antecipe <span class="text-warning">5 Anos do seu FGTS</span> Agora!
-            </h1>
-            
-            <p class="lead mb-5 opacity-90 animate__animated animate__fadeInUp animate__delay-1s">
-                O prazo está acabando. Garanta seu <strong>respiro financeiro</strong> com Solange Ladeira.
-            </p>
+        <div class="hero-container-flex container text-center text-white">
+            <div class="hero-content">
+                <div class="badge bg-danger p-3 rounded-pill mb-4 animate__animated animate__fadeInDown shadow" style="display: inline-block;">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i> 
+                    ALERTA: RESOLUÇÃO CCFGTS nº 1.130/2025
+                </div>
+                
+                <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInUp">
+                    Antecipe <span class="text-warning">5 Anos do seu FGTS</span> Agora!
+                </h1>
+                
+                <p class="lead mb-5 opacity-90 animate__animated animate__fadeInUp animate__delay-1s">
+                    O prazo está acabando. Garanta seu <strong>respiro financeiro</strong> com Solange Ladeira.
+                </p>
 
-            <div class="animate__animated animate__zoomIn animate__delay-2s">
-                <a href="https://wa.me/5521992279948" target="_blank" class="btn-whatsapp fs-5 w-100 w-md-auto">
-                    <i class="bi bi-whatsapp me-2"></i> Falar com Solange Ladeira
-                </a>
+                <div class="animate__animated animate__zoomIn animate__delay-2s">
+                    <a href="https://wa.me/5521992279948" target="_blank" class="btn-whatsapp fs-5 w-100 w-md-auto">
+                        <i class="bi bi-whatsapp me-2"></i> Falar com Solange Ladeira
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -209,21 +201,21 @@
                     <div class="card h-100 card-regra shadow-sm p-4">
                         <i class="bi bi-calendar-x text-danger fs-1 mb-3"></i>
                         <h5 class="fw-bold">Redução de Parcelas</h5>
-                        <p class="text-muted">A antecipação cairá de <strong>5 para 3 parcelas</strong> anuais em breve. Aproveite o limite atual agora.</p>
+                        <p class="text-muted">A antecipação cairá de 5 para 3 parcelas anuais após novembro/2026.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 card-regra shadow-sm p-4">
                         <i class="bi bi-currency-dollar text-success fs-1 mb-3"></i>
                         <h5 class="fw-bold">Teto por Parcela</h5>
-                        <p class="text-muted">O valor máximo por saque antecipado será limitado a <strong>R$ 500,00 por ano</strong>.</p>
+                        <p class="text-muted">O valor máximo por saque será limitado a R$ 500,00 por ano.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 card-regra shadow-sm p-4">
                         <i class="bi bi-clock-history text-primary fs-1 mb-3"></i>
                         <h5 class="fw-bold">Carência de Adesão</h5>
-                        <p class="text-muted">Novos optantes do Saque-Aniversário têm carência de <strong>90 dias</strong> para solicitar empréstimos.</p>
+                        <p class="text-muted">Novos optantes têm carência de 90 dias para solicitar empréstimos.</p>
                     </div>
                 </div>
             </div>
@@ -235,13 +227,13 @@
             <div class="row align-items-center">
                 <div class="col-md-6 mb-4 mb-md-0">
                     <h5 class="fw-bold">Poder Financeiro</h5>
-                    <p class="small text-secondary mb-0">Consultoria: Solange Ladeira dos Santos</p>
+                    <p class="small text-secondary mb-0">Consultora: Solange Ladeira dos Santos</p>
                     <p class="small text-secondary">Especialista em soluções de crédito e respiro financeiro.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <div class="alert alert-dark border-secondary d-inline-block py-2 px-3 small mb-0">
                         <i class="bi bi-shield-fill-exclamation text-warning me-2"></i>
-                        O Poder Financeiro não cobra taxas antecipadas para liberação de crédito.
+                        O Poder Financeiro não cobra taxas antecipadas.
                     </div>
                 </div>
             </div>
@@ -280,7 +272,6 @@
                 atualizarIcone();
             });
 
-            // Lógica de Autoplay na primeira interação
             document.body.addEventListener('click', () => {
                 if(audio.paused && !localStorage.getItem('musicaTocou')) {
                     audio.play();
