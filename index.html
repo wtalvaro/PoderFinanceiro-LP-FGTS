@@ -707,7 +707,8 @@
         <i id="iconeAudio" class="bi bi-volume-up-fill me-2"></i>
         <span class="audio-text text-dark">OUVIR MENSAGEM DE SOLANGE</span>
     </button>
-    <audio id="musicaFundo" src="./A%20Chave%20do%20Respiro.mp3" loop></audio>
+    
+    <audio id="musicaFundo" src="./A%20Chave%20do%20Respiro.mp3"></audio>
 
     <a href="https://wa.me/5521992279948" target="_blank" class="whatsapp-float shadow-lg">
         <i class="bi bi-whatsapp"></i>
@@ -721,28 +722,56 @@
             const btnAudio = document.getElementById('btnAudio');
             const iconeAudio = document.getElementById('iconeAudio');
 
+            // 1. REQUISITO: Garantir via JavaScript que o áudio não fará loop
+            audio.loop = false;
+
+            // Função centralizada para gerenciar o estado visual (Ícone)
             function atualizarIcone() {
-                if (audio.paused) {
-                    iconeAudio.classList.replace('bi-volume-up-fill', 'bi-volume-mute-fill');
+                if (audio.ended) {
+                    // Áudio terminou: Muda para o ícone de Replay
+                    iconeAudio.className = 'bi bi-arrow-clockwise me-2';
+                } else if (audio.paused) {
+                    // Áudio pausado no meio: Muda para ícone de Mudo
+                    iconeAudio.className = 'bi bi-volume-mute-fill me-2';
                 } else {
-                    iconeAudio.classList.replace('bi-volume-mute-fill', 'bi-volume-up-fill');
+                    // Áudio tocando: Muda para ícone de Volume Alto
+                    iconeAudio.className = 'bi bi-volume-up-fill me-2';
                 }
             }
 
+            // Evento de clique no botão flutuante
             btnAudio.addEventListener('click', function (e) {
-                e.stopPropagation();
-                audio.paused ? audio.play() : audio.pause();
+                e.stopPropagation(); // Evita conflitos com o autoplay do body
+                
+                if (audio.ended) {
+                    // Se o áudio já terminou, o clique funciona como um "Replay"
+                    audio.currentTime = 0; 
+                    audio.play();
+                } else if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+                
                 atualizarIcone();
             });
 
-            // Autoplay na primeira interação
+            // 2. REQUISITO: Event Listener disparado exatamente quando o áudio acaba
+            audio.addEventListener('ended', function() {
+                atualizarIcone();
+                // Opcional: A animação CSS de pulsação pode ser interrompida aqui se desejar, 
+                // mas mantê-la instiga o clique de "Replay".
+            });
+
+            // Autoplay na primeira interação do usuário com a página
             document.body.addEventListener('click', () => {
-                if (audio.paused && !localStorage.getItem('musicaTocou')) {
+                // Toca apenas se estiver pausado, se for a primeira vez, e se não tiver acabado
+                if (audio.paused && !localStorage.getItem('musicaTocou') && !audio.ended) {
                     audio.play();
                     localStorage.setItem('musicaTocou', 'true');
                     atualizarIcone();
                 }
-            }, { once: true });
+            }, { once: true }); // O { once: true } garante que o body escute esse evento só uma vez
         });
     </script>
 </body>
