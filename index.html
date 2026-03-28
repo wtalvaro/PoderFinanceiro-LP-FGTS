@@ -643,3 +643,79 @@
                     <p class="fs-4 text-secondary mb-5">
                         Especialista da <strong>Poder Financeiro</strong>. A nossa missão é devolver a liberdade
                         financeira às famílias brasileiras com um processo 100% digital e seguro.
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <a href="https://wa.me/5521992279948" target="_blank"
+                            class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                            <i class="bi bi-whatsapp fs-4 me-2"></i> Falar com a Solange
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-light w-100">
+        <div class="container text-center text-md-start">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4">
+                    <h5 class="fw-bold text-white">Poder Financeiro</h5>
+                    <p class="small text-secondary mb-0">Consultoria: Solange Ladeira dos Santos</p>
+                    <p class="small text-secondary">Aprovação sujeita à análise de crédito e margem disponível.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="alert alert-dark border-secondary d-inline-block py-2 px-4 small mb-0 shadow-sm">
+                        <i class="bi bi-shield-fill-check text-warning me-2"></i>
+                        Atenção: Não cobramos taxas antecipadas para liberação.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="btnAudio" class="audio-float" title="Pausar/Tocar Música da Campanha"
+        aria-label="Controle de Música da Campanha">
+        <i id="iconeAudio" class="bi bi-volume-mute-fill"></i>
+        <span class="audio-text">Ouvir música da campanha</span>
+    </button>
+    <audio id="musicaFundo" src="./A%20Chave%20do%20Respiro.mp3"></audio>
+
+    <a href="https://wa.me/5521992279948" target="_blank" class="whatsapp-float shadow-lg">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const audio = document.getElementById('musicaFundo');
+            const btnAudio = document.getElementById('btnAudio');
+            const iconeAudio = document.getElementById('iconeAudio');
+
+            function atualizarIcone() {
+                if (audio.paused) {
+                    iconeAudio.classList.replace('bi-volume-up-fill', 'bi-volume-mute-fill');
+                } else {
+                    iconeAudio.classList.replace('bi-volume-mute-fill', 'bi-volume-up-fill');
+                }
+            }
+
+            btnAudio.addEventListener('click', function (e) {
+                e.stopPropagation();
+                audio.paused ? audio.play() : audio.pause();
+                atualizarIcone();
+            });
+
+            // Autoplay na primeira interação
+            document.body.addEventListener('click', () => {
+                if (audio.paused && !localStorage.getItem('musicaTocou')) {
+                    audio.play();
+                    localStorage.setItem('musicaTocou', 'true');
+                    atualizarIcone();
+                }
+            }, { once: true });
+        });
+    </script>
+</body>
+
+</html>
