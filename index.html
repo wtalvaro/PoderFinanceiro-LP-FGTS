@@ -51,6 +51,37 @@
             overflow: hidden;
         }
 
+        /* --- ESTILOS DO NAVBAR PREMIUM --- */
+        .navbar-custom {
+            border-bottom: 3px solid var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+
+        /* Animação do Botão de Áudio no Header */
+        @keyframes navAudioPulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); transform: scale(1); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 193, 7, 0); transform: scale(1.02); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); transform: scale(1); }
+        }
+
+        .btn-nav-audio {
+            animation: navAudioPulse 2s infinite;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-nav-audio:hover {
+            animation: none;
+            transform: scale(1.05);
+        }
+
+        /* Ajustes de hover para os links do menu */
+        .navbar-nav .nav-link {
+            transition: color 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-gold) !important;
+        }
+
         /* --- HERO & VÍDEO --- */
         .video-bg {
             position: absolute;
@@ -133,53 +164,6 @@
             transition: color 0.3s ease;
         }
 
-        /* --- NOVA ESTÉTICA E ANIMAÇÃO DO BOTÃO DE ÁUDIO --- */
-        @keyframes audioPulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
-                transform: scale(1);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(255, 193, 7, 0);
-                transform: scale(1.05);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
-                transform: scale(1);
-            }
-        }
-
-        .audio-float {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            animation: audioPulse 2s infinite;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .audio-float .bi {
-            font-size: 1.4rem;
-        }
-
-        .audio-float .audio-text {
-            font-size: 15px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .audio-float:hover {
-            animation: none;
-            transform: scale(1.1) translateY(-5px);
-        }
-
         /* --- BOTÃO FLUTUANTE DO WHATSAPP --- */
         .whatsapp-float {
             position: fixed;
@@ -225,8 +209,6 @@
         @media (max-width: 576px) {
             .display-4 { font-size: 2rem !important; }
             .lead { font-size: 1.1rem; }
-            .audio-float .audio-text { display: none; }
-            .audio-float { width: 55px; height: 55px; padding: 0; }
             .whatsapp-float { width: 55px; height: 55px; font-size: 30px; }
         }
 
@@ -252,16 +234,43 @@
 
 <body>
 
-    <nav class="navbar bg-white fixed-top shadow-sm py-3" style="z-index: 1050;">
-        <div class="container d-flex justify-content-between">
-            <span class="navbar-brand fw-bold fs-4 d-flex align-items-center">
-                <i class="bi bi-shield-lock-fill text-primary me-2"></i>
-                Poder <span class="text-primary ms-1">Financeiro</span>
-            </span>
-            <a href="https://wa.me/5521992279948" target="_blank"
-                class="btn btn-success rounded-pill fw-bold d-none d-md-block shadow-sm">
-                Simular agora no WhatsApp
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top shadow-sm navbar-custom py-2" style="z-index: 1050;">
+        <div class="container align-items-center">
+            
+            <a class="navbar-brand fw-bold fs-4 d-flex align-items-center me-0" href="#">
+                <i class="bi bi-shield-lock-fill text-warning me-2"></i>
+                Poder <span class="text-warning ms-1">Financeiro</span>
             </a>
+
+            <div class="d-flex mx-auto order-2 my-1 my-lg-0">
+                <button id="btnAudio" class="btn btn-warning rounded-pill shadow-lg px-3 px-lg-4 py-2 d-flex align-items-center btn-nav-audio" title="Ouvir mensagem de Solange" aria-label="Tocar mensagem">
+                    <i id="iconeAudio" class="bi bi-volume-up-fill fs-5 me-1 me-lg-2"></i>
+                    <span class="fw-bold text-dark d-none d-md-inline" style="letter-spacing: 0.5px;">OUVIR MENSAGEM</span>
+                    <span class="fw-bold text-dark d-inline d-md-none" style="font-size: 0.85rem;">OUVIR</span>
+                </button>
+            </div>
+
+            <button class="navbar-toggler order-3 ms-2 border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLinks" aria-controls="navbarLinks" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse order-4 order-lg-3" id="navbarLinks">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold text-center text-lg-start mt-3 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#motivos-acao">FGTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#consignado-inss">INSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#consignado-clt">CLT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#credito-pessoal">Pessoal</a>
+                    </li>
+                </ul>
+            </div>
+            
         </div>
     </nav>
 
@@ -699,14 +708,6 @@
             
         </div>
     </footer>
-
-    <button id="btnAudio" 
-            class="audio-float btn btn-warning btn-lg rounded-pill shadow-lg py-3 px-4 d-flex align-items-center animate__animated animate__fadeInLeft animate__delay-2s" 
-            title="Ouvir mensagem importante de Solange"
-            aria-label="Tocar mensagem de voz da Solange Ladeira">
-        <i id="iconeAudio" class="bi bi-volume-up-fill me-2"></i>
-        <span class="audio-text text-dark">OUVIR MENSAGEM DE SOLANGE</span>
-    </button>
     
     <audio id="musicaFundo" src="./A%20Chave%20do%20Respiro.mp3"></audio>
 
@@ -729,17 +730,17 @@
             function atualizarIcone() {
                 if (audio.ended) {
                     // Áudio terminou: Muda para o ícone de Replay
-                    iconeAudio.className = 'bi bi-arrow-clockwise me-2';
+                    iconeAudio.className = 'bi bi-arrow-clockwise fs-5 me-1 me-lg-2';
                 } else if (audio.paused) {
                     // Áudio pausado no meio: Muda para ícone de Mudo
-                    iconeAudio.className = 'bi bi-volume-mute-fill me-2';
+                    iconeAudio.className = 'bi bi-volume-mute-fill fs-5 me-1 me-lg-2';
                 } else {
                     // Áudio tocando: Muda para ícone de Volume Alto
-                    iconeAudio.className = 'bi bi-volume-up-fill me-2';
+                    iconeAudio.className = 'bi bi-volume-up-fill fs-5 me-1 me-lg-2';
                 }
             }
 
-            // Evento de clique no botão flutuante
+            // Evento de clique no botão do Header
             btnAudio.addEventListener('click', function (e) {
                 e.stopPropagation(); // Evita conflitos com o autoplay do body
                 
@@ -759,8 +760,6 @@
             // 2. REQUISITO: Event Listener disparado exatamente quando o áudio acaba
             audio.addEventListener('ended', function() {
                 atualizarIcone();
-                // Opcional: A animação CSS de pulsação pode ser interrompida aqui se desejar, 
-                // mas mantê-la instiga o clique de "Replay".
             });
 
             // Autoplay na primeira interação do usuário com a página
@@ -772,6 +771,18 @@
                     atualizarIcone();
                 }
             }, { once: true }); // O { once: true } garante que o body escute esse evento só uma vez
+            
+            // Corrige comportamento da Navbar em resoluções menores ao clicar em um link
+            const navLinks = document.querySelectorAll('.nav-link');
+            const menuToggle = document.getElementById('navbarLinks');
+            const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
+            navLinks.forEach((l) => {
+                l.addEventListener('click', () => {
+                    if(menuToggle.classList.contains('show')) {
+                        bsCollapse.toggle();
+                    }
+                });
+            });
         });
     </script>
 </body>
