@@ -18,19 +18,41 @@
             --whatsapp-hover: #1ebe5d;
         }
 
+        /* --- IMPLEMENTAÇÃO SCROLL SNAPPING NO BODY --- */
+        html, body {
+            height: 100%;
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Segoe UI', Roboto, sans-serif;
             color: var(--primary-blue);
-            padding-top: 76px;
+            /* Ativa o travamento de rolagem vertical */
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
         }
 
-        /* --- REFATORAÇÃO: SEÇÃO HERO COM ALTURA ESTÁTICA --- */
-        .hero-static-section {
+        /* Cada seção principal deve travar no topo (start) */
+        section, header, footer {
+            scroll-snap-align: start;
+            min-height: 100vh; /* Garante que preencha a tela */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            height: 550px; /* ALTURA FIXA OBRIGATÓRIA */
+        }
+
+        /* Ajuste para a Navbar fixa não sobrepor o Snap */
+        nav {
+            z-index: 1050;
+        }
+
+        /* --- ESTILO HERO / VIDEO --- */
+        .hero-static-section {
+            background-color: #000;
             width: 100%;
             overflow: hidden;
-            background-color: #000;
         }
 
         .video-bg {
@@ -39,7 +61,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Garante que o vídeo preencha a altura fixa sem distorcer */
+            object-fit: cover;
             z-index: 0;
         }
 
@@ -53,22 +75,13 @@
             z-index: 1;
         }
 
-        /* Centralização Vertical Absoluta usando Flexbox */
-        .hero-container-flex {
+        .hero-content {
             position: relative;
             z-index: 2;
-            height: 100%;
-            display: flex;
-            align-items: center; /* Centraliza Verticalmente */
-            justify-content: center; /* Centraliza Horizontalmente */
-        }
-
-        .hero-content {
-            width: 100%;
             padding: 2rem;
         }
 
-        /* --- COMPONENTES DE CONVERSÃO --- */
+        /* --- COMPONENTES --- */
         .btn-whatsapp {
             background-color: var(--whatsapp-green);
             border: none;
@@ -82,20 +95,13 @@
             display: inline-block;
         }
 
-        .btn-whatsapp:hover {
-            background-color: var(--whatsapp-hover);
-            transform: scale(1.05);
-            color: white;
-        }
-
         .card-regra {
             border: none;
             border-left: 4px solid var(--accent-gold);
-            transition: transform 0.2s;
+            background: #fff;
         }
-        .card-regra:hover { transform: translateY(-5px); }
 
-        /* --- BOTÃO DE ÁUDIO PRESERVADO --- */
+        /* --- BOTÕES FLUTUANTES --- */
         .audio-float {
             position: fixed;
             bottom: 25px;
@@ -104,42 +110,34 @@
             color: #FFF;
             border-radius: 50px;
             padding: 12px 20px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
             z-index: 1000;
             display: flex;
             align-items: center;
-            justify-content: center;
             border: none;
             cursor: pointer;
-            transition: all 0.3s;
         }
-        .audio-text { font-size: 14px; font-weight: 600; margin-left: 10px; }
 
         .whatsapp-float {
             position: fixed;
-            width: 65px;
-            height: 65px;
+            width: 60px;
+            height: 60px;
             bottom: 25px;
             right: 25px;
             background-color: var(--whatsapp-green);
             color: #FFF;
             border-radius: 50px;
-            text-align: center;
-            font-size: 35px;
-            box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
-            z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 30px;
+            z-index: 1000;
             text-decoration: none;
         }
 
         @media (max-width: 576px) {
-            .hero-static-section { height: 600px; } /* Altura levemente menor para mobile, mas ainda fixa */
-            .display-4 { font-size: 1.8rem !important; line-height: 1.3; }
-            .badge { white-space: normal !important; max-width: 90%; }
+            .display-4 { font-size: 1.8rem !important; }
             .audio-text { display: none; }
-            .audio-float { width: 55px; height: 55px; padding: 0; }
+            .audio-float { width: 55px; height: 55px; padding: 0; justify-content: center; }
         }
     </style>
 </head>
@@ -147,100 +145,93 @@
 
     <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm py-3">
         <div class="container">
-            <span class="navbar-brand fw-bold fs-4 d-flex align-items-center">
-                <i class="bi bi-shield-lock-fill text-primary me-2"></i>
-                Poder <span class="text-primary ms-1">Financeiro</span>
+            <span class="navbar-brand fw-bold fs-4">
+                <i class="bi bi-shield-lock-fill text-primary"></i> Poder Financeiro
             </span>
             <div class="ms-auto d-none d-md-block">
-                <span class="me-3 small text-muted">Consultora: <strong>Solange Ladeira dos Santos</strong></span>
-                <a href="https://wa.me/5521992279948" class="btn btn-outline-success rounded-pill fw-bold">
-                    <i class="bi bi-whatsapp me-1"></i> Falar com Solange
-                </a>
+                <span class="me-3 small">Consultora: <strong>Solange Ladeira dos Santos</strong></span>
+                <a href="https://wa.me/5521992279948" class="btn btn-outline-success rounded-pill fw-bold">WhatsApp</a>
             </div>
         </div>
     </nav>
 
-    <section class="hero-static-section">
+    <header class="hero-static-section">
         <video class="video-bg" autoplay muted loop playsinline>
             <source src="./A_Chave_do_Respiro_Video.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
-
-        <div class="hero-container-flex container text-center text-white">
-            <div class="hero-content">
-                <div class="badge bg-danger p-3 rounded-pill mb-4 animate__animated animate__fadeInDown shadow" style="display: inline-block;">
-                    <i class="bi bi-exclamation-triangle-fill me-2"></i> 
-                    ALERTA: RESOLUÇÃO CCFGTS nº 1.130/2025
-                </div>
-                
-                <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInUp">
-                    Antecipe <span class="text-warning">5 Anos do seu FGTS</span> Agora!
-                </h1>
-                
-                <p class="lead mb-5 opacity-90 animate__animated animate__fadeInUp animate__delay-1s">
-                    O prazo está acabando. Garanta seu <strong>respiro financeiro</strong> com Solange Ladeira.
-                </p>
-
-                <div class="animate__animated animate__zoomIn animate__delay-2s">
-                    <a href="https://wa.me/5521992279948" target="_blank" class="btn-whatsapp fs-5 w-100 w-md-auto">
-                        <i class="bi bi-whatsapp me-2"></i> Falar com Solange Ladeira
-                    </a>
-                </div>
+        <div class="container hero-content text-center text-white">
+            <div class="badge bg-danger p-3 rounded-pill mb-4 animate__animated animate__fadeInDown shadow">
+                ALERTA: RESOLUÇÃO CCFGTS nº 1.130/2025
             </div>
+            <h1 class="display-4 fw-bold mb-4">Antecipe <span class="text-warning">5 Anos do seu FGTS</span> Agora!</h1>
+            <p class="lead mb-5 opacity-90">O prazo está acabando. Garanta seu respiro financeiro com Solange Ladeira.</p>
+            <a href="https://wa.me/5521992279948" target="_blank" class="btn-whatsapp fs-5">Falar com Solange Ladeira</a>
         </div>
-    </section>
+    </header>
 
     <section class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">Regras Atuais e Futuras</h2>
-                <p class="text-muted">Entenda os limites estabelecidos pelo Governo e garanta seu direito.</p>
-            </div>
-            <div class="row g-4">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5">Mudanças Importantes</h2>
+            <div class="row g-4 text-start">
                 <div class="col-md-4">
                     <div class="card h-100 card-regra shadow-sm p-4">
                         <i class="bi bi-calendar-x text-danger fs-1 mb-3"></i>
                         <h5 class="fw-bold">Redução de Parcelas</h5>
-                        <p class="text-muted">A antecipação cairá de 5 para 3 parcelas anuais após novembro/2026.</p>
+                        <p class="text-muted">A antecipação cairá de 5 para 3 parcelas anuais após novembro/2026. Aproveite agora.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 card-regra shadow-sm p-4">
                         <i class="bi bi-currency-dollar text-success fs-1 mb-3"></i>
                         <h5 class="fw-bold">Teto por Parcela</h5>
-                        <p class="text-muted">O valor máximo por saque será limitado a R$ 500,00 por ano.</p>
+                        <p class="text-muted">O valor máximo por saque será limitado a R$ 500,00 por ano conforme a nova lei.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 card-regra shadow-sm p-4">
                         <i class="bi bi-clock-history text-primary fs-1 mb-3"></i>
-                        <h5 class="fw-bold">Carência de Adesão</h5>
-                        <p class="text-muted">Novos optantes têm carência de 90 dias para solicitar empréstimos.</p>
+                        <h5 class="fw-bold">Carência de 90 Dias</h5>
+                        <p class="text-muted">Novos optantes têm carência obrigatória de 3 meses para solicitar empréstimos.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-dark text-light py-5">
-        <div class="container text-center text-md-start">
+    <section class="py-5 bg-white text-center">
+        <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 mb-4 mb-md-0">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 fw-bold mb-4 text-primary">Missão Respiro Financeiro</h2>
+                    <p class="fs-4 text-secondary mb-5">
+                        Solange Ladeira dos Santos lidera a Poder Financeiro com o objetivo de devolver a liberdade às famílias brasileiras, através de um processo seguro e 100% digital.
+                    </p>
+                    <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill px-5 py-3 fw-bold">Garantir meu Respiro</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row align-items-center text-center text-md-start">
+                <div class="col-md-6 mb-4">
                     <h5 class="fw-bold">Poder Financeiro</h5>
-                    <p class="small text-secondary mb-0">Consultora: Solange Ladeira dos Santos</p>
-                    <p class="small text-secondary">Especialista em soluções de crédito e respiro financeiro.</p>
+                    <p class="small text-secondary mb-0">Consultoria Especializada: Solange Ladeira dos Santos</p>
+                    <p class="small text-secondary">Transparência e autoridade em crédito FGTS.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <div class="alert alert-dark border-secondary d-inline-block py-2 px-3 small mb-0">
+                    <div class="alert alert-dark border-secondary d-inline-block py-2 px-3 small">
                         <i class="bi bi-shield-fill-exclamation text-warning me-2"></i>
-                        O Poder Financeiro não cobra taxas antecipadas.
+                        Não cobramos taxas antecipadas para liberação.
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <button id="btnAudio" class="audio-float" title="Pausar/Tocar Música da Campanha">
+    <button id="btnAudio" class="audio-float" title="Ouvir música da campanha">
         <i id="iconeAudio" class="bi bi-volume-mute-fill"></i>
         <span class="audio-text">Ouvir música da campanha</span>
     </button>
@@ -251,36 +242,30 @@
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const audio = document.getElementById('musicaFundo');
             const btnAudio = document.getElementById('btnAudio');
             const iconeAudio = document.getElementById('iconeAudio');
             
-            function atualizarIcone() {
-                if (audio.paused) {
-                    iconeAudio.classList.replace('bi-volume-up-fill', 'bi-volume-mute-fill');
-                } else {
-                    iconeAudio.classList.replace('bi-volume-mute-fill', 'bi-volume-up-fill');
-                }
-            }
-
             btnAudio.addEventListener('click', function(e) {
                 e.stopPropagation();
-                audio.paused ? audio.play() : audio.pause();
-                atualizarIcone();
+                if (audio.paused) {
+                    audio.play();
+                    iconeAudio.classList.replace('bi-volume-mute-fill', 'bi-volume-up-fill');
+                } else {
+                    audio.pause();
+                    iconeAudio.classList.replace('bi-volume-up-fill', 'bi-volume-mute-fill');
+                }
             });
 
             document.body.addEventListener('click', () => {
                 if(audio.paused && !localStorage.getItem('musicaTocou')) {
                     audio.play();
                     localStorage.setItem('musicaTocou', 'true');
-                    atualizarIcone();
+                    iconeAudio.classList.replace('bi-volume-mute-fill', 'bi-volume-up-fill');
                 }
             }, { once: true });
-
-            audio.addEventListener('ended', atualizarIcone);
         });
     </script>
 </body>
