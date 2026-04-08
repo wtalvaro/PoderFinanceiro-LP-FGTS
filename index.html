@@ -27,7 +27,8 @@
         body {
             font-family: 'Segoe UI', Roboto, sans-serif;
             color: var(--primary-blue);
-            padding-top: 80px; /* Ajuste obrigatório de segurança para o .fixed-top */
+            padding-top: 80px;
+            /* Ajuste obrigatório de segurança para o .fixed-top */
             margin: 0;
             scroll-snap-type: y mandatory;
             overflow-y: scroll;
@@ -35,10 +36,13 @@
             box-sizing: border-box;
         }
 
-        section, header, footer {
+        section,
+        header,
+        footer {
             scroll-snap-align: start;
             scroll-snap-stop: always;
-            min-height: calc(100vh - 80px); /* Ajustado para compensar o padding do body */
+            min-height: calc(100vh - 80px);
+            /* Ajustado para compensar o padding do body */
             width: 100%;
             display: flex;
             align-items: center;
@@ -50,20 +54,32 @@
         /* --- ESTILOS DO NAVBAR PREMIUM --- */
         .navbar-custom {
             border-bottom: 3px solid var(--accent-gold);
-            height: 80px; /* Fixando a altura para casar com o padding do body */
+            height: 80px;
+            /* Fixando a altura para casar com o padding do body */
             transition: all 0.3s ease;
         }
 
         @keyframes navAudioPulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); transform: scale(1); }
-            70% { box-shadow: 0 0 0 10px rgba(255, 193, 7, 0); transform: scale(1.02); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); transform: scale(1); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+                transform: scale(1);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+                transform: scale(1.02);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+                transform: scale(1);
+            }
         }
 
         .btn-nav-audio {
             animation: navAudioPulse 2s infinite;
             transition: all 0.3s ease-in-out;
-            white-space: nowrap; 
+            white-space: nowrap;
         }
 
         .btn-nav-audio:hover {
@@ -74,7 +90,7 @@
         .navbar-nav .nav-link {
             transition: color 0.3s ease;
         }
-        
+
         .navbar-nav .nav-link:hover {
             color: var(--accent-gold) !important;
         }
@@ -105,11 +121,14 @@
             z-index: 2;
             width: 100%;
             padding: 0 1.5rem;
-            display: block; 
+            display: block;
         }
 
         /* --- SECÇÕES DE ALTA CONVERSÃO E CARDS --- */
-        #motivos-acao, #consignado-inss, #consignado-clt, #credito-pessoal {
+        #motivos-acao,
+        #consignado-inss,
+        #consignado-clt,
+        #credito-pessoal {
             padding-top: 40px;
             padding-bottom: 40px;
         }
@@ -147,10 +166,21 @@
             white-space: nowrap;
         }
 
-        .text-inss { color: #f68b1f; }
-        .text-clt { color: #0dcaf0; }
-        .text-pessoal { color: #198754; }
-        .hover-white:hover { color: #ffffff !important; }
+        .text-inss {
+            color: #f68b1f;
+        }
+
+        .text-clt {
+            color: #0dcaf0;
+        }
+
+        .text-pessoal {
+            color: #198754;
+        }
+
+        .hover-white:hover {
+            color: #ffffff !important;
+        }
 
         /* --- BOTÃO FLUTUANTE DO WHATSAPP --- */
         .whatsapp-float {
@@ -179,31 +209,107 @@
 
         /* --- AJUSTES RESPONSIVOS PADRÃO --- */
         @media (max-width: 768px) {
-            section, header, footer { height: auto; min-height: calc(100vh - 80px); padding: 60px 0; }
-            #motivos-acao, #consignado-inss, #consignado-clt, #credito-pessoal { padding-top: 60px; padding-bottom: 60px; }
-            .card-alta-conversao { margin-bottom: 25px; }
-            .display-6 { font-size: 1.8rem; line-height: 1.3; }
+
+            section,
+            header,
+            footer {
+                height: auto;
+                min-height: calc(100vh - 80px);
+                padding: 60px 0;
+            }
+
+            #motivos-acao,
+            #consignado-inss,
+            #consignado-clt,
+            #credito-pessoal {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+
+            .card-alta-conversao {
+                margin-bottom: 25px;
+            }
+
+            .display-6 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
         }
 
         @media (max-width: 576px) {
-            .display-4 { font-size: 2rem !important; }
-            .lead { font-size: 1.1rem; }
-            .whatsapp-float { width: 55px; height: 55px; font-size: 30px; }
+            .display-4 {
+                font-size: 2rem !important;
+            }
+
+            .lead {
+                font-size: 1.1rem;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 30px;
+            }
         }
 
         /* --- AJUSTE UI/UX: MODO PAISAGEM / LANDSCAPE --- */
         @media (max-height: 500px) and (orientation: landscape) {
-            .hero-static, section, header, footer { height: auto !important; min-height: calc(100vh - 80px); padding-top: 40px; padding-bottom: 40px; }
-            .display-4, .display-5, .display-6, h2 { font-size: 1.5rem !important; margin-bottom: 0.5rem !important; }
-            .lead { font-size: 1rem !important; margin-bottom: 1rem !important; }
-            .hero-content { padding-top: 20px; }
-            .hero-content .badge { padding: 8px 12px !important; margin-bottom: 10px !important; font-size: 0.75rem; }
-            .hero-content .btn-lg { padding: 10px 20px !important; font-size: 1rem !important; margin-bottom: 1rem !important; }
-            
-            .btn-nav-audio { min-width: 90px; padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
-            .btn-nav-audio span.d-lg-none { font-size: 0.70rem !important; }
-            
-            #navbarMenu { max-height: 250px; overflow-y: auto; } /* Previne que o menu vaze a tela deitada */
+
+            .hero-static,
+            section,
+            header,
+            footer {
+                height: auto !important;
+                min-height: calc(100vh - 80px);
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
+
+            .display-4,
+            .display-5,
+            .display-6,
+            h2 {
+                font-size: 1.5rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .lead {
+                font-size: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .hero-content {
+                padding-top: 20px;
+            }
+
+            .hero-content .badge {
+                padding: 8px 12px !important;
+                margin-bottom: 10px !important;
+                font-size: 0.75rem;
+            }
+
+            .hero-content .btn-lg {
+                padding: 10px 20px !important;
+                font-size: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .btn-nav-audio {
+                min-width: 90px;
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+
+            .btn-nav-audio span.d-lg-none {
+                font-size: 0.70rem !important;
+            }
+
+            #navbarMenu {
+                max-height: 250px;
+                overflow-y: auto;
+            }
+
+            /* Previne que o menu vaze a tela deitada */
         }
     </style>
 </head>
@@ -212,49 +318,63 @@
 
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top shadow-sm navbar-custom" style="z-index: 1050;">
         <div class="container d-flex flex-wrap align-items-center justify-content-between position-relative h-100">
-            
+
             <div class="row w-100 align-items-center flex-nowrap mx-0">
-                
+
                 <div class="col-4 px-0 d-flex justify-content-start align-items-center">
                     <a class="navbar-brand fw-bold fs-6 fs-lg-4 m-0 p-0 text-truncate" href="#">
                         <i class="bi bi-shield-lock-fill text-warning me-1 me-lg-2"></i>
-                        <span class="d-none d-sm-inline">Poder </span><span class="text-warning ms-sm-1">Financeiro</span>
+                        <span class="d-none d-sm-inline">Poder </span><span
+                            class="text-warning ms-sm-1">Financeiro</span>
                     </a>
                 </div>
 
                 <div class="col-4 px-0 d-flex justify-content-center align-items-center">
-                    <button id="btnAudio" class="btn btn-warning rounded-pill shadow-lg px-3 py-2 d-inline-flex align-items-center justify-content-center btn-nav-audio" title="Ouvir mensagem de Solange" aria-label="Tocar mensagem">
+                    <button id="btnAudio" data-audio-trigger="main"
+                        class="btn btn-warning rounded-pill shadow-lg px-3 py-2 d-inline-flex align-items-center justify-content-center btn-nav-audio"
+                        title="Ouvir mensagem de Solange" aria-label="Tocar mensagem">
                         <i id="iconeAudio" class="bi bi-volume-up-fill fs-6 fs-lg-5 mb-0"></i>
-                        <span class="fw-bold text-dark d-none d-lg-inline ms-2" style="letter-spacing: 0.5px;">OUVIR MENSAGEM</span>
-                        <span class="fw-bold text-dark d-inline d-lg-none ms-1" style="font-size: 0.85rem;">OUVIR</span>
+                        <span class="fw-bold text-dark d-none d-lg-inline ms-2">OUVIR MENSAGEM</span>
+                        <span class="fw-bold text-dark d-inline d-lg-none ms-1">OUVIR</span>
                     </button>
                 </div>
 
                 <div class="col-4 px-0 d-flex justify-content-end align-items-center">
-                    <button class="navbar-toggler border-0 shadow-none p-1 d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Alternar navegação">
+                    <button class="navbar-toggler border-0 shadow-none p-1 d-lg-none" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu"
+                        aria-expanded="false" aria-label="Alternar navegação">
                         <span class="navbar-toggler-icon" style="width: 1.2rem; height: 1.2rem;"></span>
                     </button>
 
                     <div class="d-none d-lg-flex ms-auto">
                         <ul class="navbar-nav fw-semibold flex-row gap-4 mb-0">
-                            <li class="nav-item"><a class="nav-link text-white p-0 hover-white" href="#motivos-acao">FGTS</a></li>
-                            <li class="nav-item"><a class="nav-link text-white p-0 hover-white" href="#consignado-inss">INSS</a></li>
-                            <li class="nav-item"><a class="nav-link text-white p-0 hover-white" href="#consignado-clt">CLT</a></li>
-                            <li class="nav-item"><a class="nav-link text-white p-0 hover-white" href="#credito-pessoal">Pessoal</a></li>
+                            <li class="nav-item"><a class="nav-link text-white p-0 hover-white"
+                                    href="#motivos-acao">FGTS</a></li>
+                            <li class="nav-item"><a class="nav-link text-white p-0 hover-white"
+                                    href="#consignado-inss">INSS</a></li>
+                            <li class="nav-item"><a class="nav-link text-white p-0 hover-white"
+                                    href="#consignado-clt">CLT</a></li>
+                            <li class="nav-item"><a class="nav-link text-white p-0 hover-white"
+                                    href="#credito-pessoal">Pessoal</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="collapse navbar-collapse bg-dark w-100 position-absolute start-0 px-3 shadow-lg rounded-bottom" id="navbarMenu" style="top: 80px; z-index: 1040;">
+            <div class="collapse navbar-collapse bg-dark w-100 position-absolute start-0 px-3 shadow-lg rounded-bottom"
+                id="navbarMenu" style="top: 80px; z-index: 1040;">
                 <ul class="navbar-nav ms-auto mb-2 fw-semibold text-center pb-3 pt-2 d-lg-none">
-                    <li class="nav-item mb-3"><a class="nav-link text-white fs-5" href="#motivos-acao">Antecipação FGTS</a></li>
-                    <li class="nav-item mb-3"><a class="nav-link text-white fs-5" href="#consignado-inss">Consignado INSS</a></li>
-                    <li class="nav-item mb-3"><a class="nav-link text-white fs-5" href="#consignado-clt">Consignado CLT</a></li>
-                    <li class="nav-item mb-2"><a class="nav-link text-white fs-5" href="#credito-pessoal">Crédito Pessoal</a></li>
+                    <li class="nav-item mb-3"><a class="nav-link text-white fs-5" href="#motivos-acao">Antecipação
+                            FGTS</a></li>
+                    <li class="nav-item mb-3"><a class="nav-link text-white fs-5" href="#consignado-inss">Consignado
+                            INSS</a></li>
+                    <li class="nav-item mb-3"><a class="nav-link text-white fs-5" href="#consignado-clt">Consignado
+                            CLT</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link text-white fs-5" href="#credito-pessoal">Crédito
+                            Pessoal</a></li>
                 </ul>
             </div>
-            
+
         </div>
     </nav>
 
@@ -268,9 +388,11 @@
                 ALERTA: RESOLUÇÃO CCFGTS nº 1.130/2025
             </div>
             <h1 class="display-4 fw-bold mb-4">Antecipe <span class="text-warning">5 Anos do seu FGTS</span> Hoje!</h1>
-            <p class="lead mb-5 opacity-90">Em novembro de 2026, o seu limite cairá para apenas 3 parcelas. Não deixe o governo travar o seu dinheiro.</p>
+            <p class="lead mb-5 opacity-90">Em novembro de 2026, o seu limite cairá para apenas 3 parcelas. Não deixe o
+                governo travar o seu dinheiro.</p>
             <div class="d-flex justify-content-center">
-                <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                <a href="https://wa.me/5521992279948" target="_blank"
+                    class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
                     <i class="bi bi-whatsapp fs-4 me-2"></i> Simular agora no WhatsApp
                 </a>
             </div>
@@ -280,39 +402,51 @@
     <section class="bg-light w-100" id="motivos-acao">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-6 fw-bold text-dark mb-4">Garanta o seu respiro financeiro hoje antes que as regras mudem</h2>
+                <h2 class="display-6 fw-bold text-dark mb-4">Garanta o seu respiro financeiro hoje antes que as regras
+                    mudem</h2>
                 <p class="fs-5 text-muted px-md-5 mx-md-5">
-                    A <strong class="text-danger">Resolução CCFGTS nº 1.130/2025</strong> vai limitar severamente o seu direito de saque. Entenda por que esperar é o maior erro financeiro que pode cometer hoje.
+                    A <strong class="text-danger">Resolução CCFGTS nº 1.130/2025</strong> vai limitar severamente o seu
+                    direito de saque. Entenda por que esperar é o maior erro financeiro que pode cometer hoje.
                 </p>
             </div>
             <div class="row justify-content-center px-2 px-md-0">
                 <div class="col-md-4 mb-4">
                     <div class="card card-alta-conversao shadow-lg h-100 px-3 py-4 text-center border-0">
-                        <span class="badge rounded-pill bg-danger badge-alerta shadow-sm"><i class="bi bi-exclamation-triangle-fill me-1"></i> ALERTA DE PRAZO</span>
+                        <span class="badge rounded-pill bg-danger badge-alerta shadow-sm"><i
+                                class="bi bi-exclamation-triangle-fill me-1"></i> ALERTA DE PRAZO</span>
                         <div class="card-body pb-4">
                             <i class="bi bi-alarm text-primary icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">O Limite Vai Despencar</h4>
-                            <p class="card-text text-secondary">Em 1º de novembro de 2026, o seu direito sofrerá um corte drástico: o limite <strong>cairá de 5 para apenas 3 parcelas anuais</strong>. A janela para sacar o valor máximo está a fechar-se rapidamente.</p>
+                            <p class="card-text text-secondary">Em 1º de novembro de 2026, o seu direito sofrerá um
+                                corte drástico: o limite <strong>cairá de 5 para apenas 3 parcelas anuais</strong>. A
+                                janela para sacar o valor máximo está a fechar-se rapidamente.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card card-alta-conversao shadow-lg h-100 px-3 py-4 text-center border-0">
-                        <span class="badge rounded-pill bg-warning text-dark badge-alerta shadow-sm"><i class="bi bi-lock-fill me-1"></i> TETO APROVADO</span>
+                        <span class="badge rounded-pill bg-warning text-dark badge-alerta shadow-sm"><i
+                                class="bi bi-lock-fill me-1"></i> TETO APROVADO</span>
                         <div class="card-body pb-4">
                             <i class="bi bi-graph-down text-primary icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">Bloqueio de Valores</h4>
-                            <p class="card-text text-secondary">A nova lei crava um <strong>teto de R$ 500,00</strong> por parcela antecipada e impõe uma <strong>carência de 90 dias</strong> para novos optantes. Deixar o seu dinheiro parado custará caro.</p>
+                            <p class="card-text text-secondary">A nova lei crava um <strong>teto de R$ 500,00</strong>
+                                por parcela antecipada e impõe uma <strong>carência de 90 dias</strong> para novos
+                                optantes. Deixar o seu dinheiro parado custará caro.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card card-alta-conversao shadow-lg h-100 px-3 py-4 text-center border-0">
-                        <span class="badge rounded-pill bg-success badge-alerta shadow-sm"><i class="bi bi-check-circle-fill me-1"></i> LIBERAÇÃO RÁPIDA</span>
+                        <span class="badge rounded-pill bg-success badge-alerta shadow-sm"><i
+                                class="bi bi-check-circle-fill me-1"></i> LIBERAÇÃO RÁPIDA</span>
                         <div class="card-body pb-4">
                             <i class="bi bi-lightning-charge text-primary icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">Respiro Sem Dívidas</h4>
-                            <p class="card-text text-secondary">Antecipar agora garante dinheiro na sua conta em <strong>até 1 dia útil</strong>. Sem comprometer a sua renda mensal com boletos, é o alívio limpo que a sua família precisa hoje.</p>
+                            <p class="card-text text-secondary">Antecipar agora garante dinheiro na sua conta em
+                                <strong>até 1 dia útil</strong>. Sem comprometer a sua renda mensal com boletos, é o
+                                alívio limpo que a sua família precisa hoje.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -328,16 +462,22 @@
                                         <i class="bi bi-graph-up-arrow me-2"></i>Novidade: O seu FGTS agora rende mais!
                                     </h3>
                                     <p class="text-muted mb-3">
-                                        Por decisão histórica do <strong>STF</strong>, o saldo do FGTS agora é corrigido pelo <strong>IPCA</strong> (inflação oficial). Isso é uma vitória: garante que o seu dinheiro não perca mais o poder de compra com o passar do tempo.
+                                        Por decisão histórica do <strong>STF</strong>, o saldo do FGTS agora é corrigido
+                                        pelo <strong>IPCA</strong> (inflação oficial). Isso é uma vitória: garante que o
+                                        seu dinheiro não perca mais o poder de compra com o passar do tempo.
                                     </p>
                                     <div class="mb-4">
-                                        <span class="badge bg-success bg-opacity-10 text-success border border-success p-2 mb-2 mb-md-0 me-md-2 fs-6 shadow-sm">
+                                        <span
+                                            class="badge bg-success bg-opacity-10 text-success border border-success p-2 mb-2 mb-md-0 me-md-2 fs-6 shadow-sm">
                                             Rendimento em 2025: 6,05%
                                         </span>
-                                        <span class="small text-muted fw-semibold">(Superando a inflação de 4,83%)</span>
+                                        <span class="small text-muted fw-semibold">(Superando a inflação de
+                                            4,83%)</span>
                                     </div>
                                     <p class="lead mb-0 fs-6 fw-semibold text-dark">
-                                        A consultora <span class="text-primary">Solange Ladeira</span> ajuda você a antecipar esse saldo valorizado de forma estratégica, transformando rendimento bloqueado em dinheiro vivo na sua conta hoje.
+                                        A consultora <span class="text-primary">Solange Ladeira</span> ajuda você a
+                                        antecipar esse saldo valorizado de forma estratégica, transformando rendimento
+                                        bloqueado em dinheiro vivo na sua conta hoje.
                                     </p>
                                 </div>
                                 <div class="col-md-4 d-none d-md-flex justify-content-center">
@@ -350,8 +490,10 @@
             </div>
             <div class="row mt-4 text-center">
                 <div class="col-12 d-flex flex-column align-items-center">
-                    <p class="small text-muted mb-3"><i class="bi bi-shield-lock-fill text-success me-1"></i> Atendimento 100% seguro. Sujeito a análise de margem.</p>
-                    <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                    <p class="small text-muted mb-3"><i class="bi bi-shield-lock-fill text-success me-1"></i>
+                        Atendimento 100% seguro. Sujeito a análise de margem.</p>
+                    <a href="https://wa.me/5521992279948" target="_blank"
+                        class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
                         <i class="bi bi-whatsapp fs-4 me-2"></i> Simular agora no WhatsApp
                     </a>
                 </div>
@@ -362,8 +504,10 @@
     <section class="bg-white w-100" id="consignado-inss">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-6 fw-bold text-dark mb-4">Crédito Especial para Aposentados e Pensionistas do INSS</h2>
-                <p class="fs-5 text-muted px-md-5 mx-md-5">As melhores taxas do mercado com desconto direto no benefício. Segurança, transparência e aprovação facilitada para quem já contribuiu a vida toda.</p>
+                <h2 class="display-6 fw-bold text-dark mb-4">Crédito Especial para Aposentados e Pensionistas do INSS
+                </h2>
+                <p class="fs-5 text-muted px-md-5 mx-md-5">As melhores taxas do mercado com desconto direto no
+                    benefício. Segurança, transparência e aprovação facilitada para quem já contribuiu a vida toda.</p>
             </div>
             <div class="row justify-content-center px-2 px-md-0 g-4">
                 <div class="col-md-6 col-lg-3">
@@ -371,7 +515,10 @@
                         <div class="card-body pb-4">
                             <i class="bi bi-pie-chart-fill text-inss icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Margem de 45%</h5>
-                            <p class="card-text text-secondary small">O limite total é dividido estrategicamente: <strong>35%</strong> para empréstimos em dinheiro, <strong>5%</strong> para cartão de crédito e <strong>5%</strong> exclusivo para o cartão benefício.</p>
+                            <p class="card-text text-secondary small">O limite total é dividido estrategicamente:
+                                <strong>35%</strong> para empréstimos em dinheiro, <strong>5%</strong> para cartão de
+                                crédito e <strong>5%</strong> exclusivo para o cartão benefício.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -380,7 +527,9 @@
                         <div class="card-body pb-4">
                             <i class="bi bi-percent text-inss icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Juros Controlados</h5>
-                            <p class="card-text text-secondary small">Proteção garantida por lei: o teto máximo atual é de apenas <strong>1,85% ao mês</strong> para empréstimos e <strong>2,46%</strong> para operações com cartões.</p>
+                            <p class="card-text text-secondary small">Proteção garantida por lei: o teto máximo atual é
+                                de apenas <strong>1,85% ao mês</strong> para empréstimos e <strong>2,46%</strong> para
+                                operações com cartões.</p>
                         </div>
                     </div>
                 </div>
@@ -389,25 +538,33 @@
                         <div class="card-body pb-4">
                             <i class="bi bi-calendar3 text-inss icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Até 84 Meses</h5>
-                            <p class="card-text text-secondary small">Prazo estendido para garantir que a parcela caiba no seu bolso. Parcele o seu crédito em até <strong>7 anos (84 meses)</strong> com valores fixos do início ao fim.</p>
+                            <p class="card-text text-secondary small">Prazo estendido para garantir que a parcela caiba
+                                no seu bolso. Parcele o seu crédito em até <strong>7 anos (84 meses)</strong> com
+                                valores fixos do início ao fim.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="card card-alta-conversao shadow-lg h-100 px-3 py-4 text-center border-0">
-                        <span class="badge rounded-pill bg-danger badge-alerta shadow-sm"><i class="bi bi-shield-lock-fill me-1"></i> ANTIFRAUDE</span>
+                        <span class="badge rounded-pill bg-danger badge-alerta shadow-sm"><i
+                                class="bi bi-shield-lock-fill me-1"></i> ANTIFRAUDE</span>
                         <div class="card-body pb-4">
                             <i class="bi bi-person-bounding-box text-inss icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Segurança Total</h5>
-                            <p class="card-text text-secondary small">A liberação exige o desbloqueio prévio via portal <strong>Meu INSS</strong> e validação por <strong>reconhecimento facial (Biometria)</strong>. Ninguém faz empréstimos no seu nome.</p>
+                            <p class="card-text text-secondary small">A liberação exige o desbloqueio prévio via portal
+                                <strong>Meu INSS</strong> e validação por <strong>reconhecimento facial
+                                    (Biometria)</strong>. Ninguém faz empréstimos no seu nome.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row mt-5 text-center">
-                <p class="small text-muted mb-3"><i class="bi bi-shield-lock-fill text-success me-1"></i> Atendimento 100% seguro. Sujeito a análise de margem.</p>
+                <p class="small text-muted mb-3"><i class="bi bi-shield-lock-fill text-success me-1"></i> Atendimento
+                    100% seguro. Sujeito a análise de margem.</p>
                 <div class="col-12 d-flex justify-content-center">
-                    <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                    <a href="https://wa.me/5521992279948" target="_blank"
+                        class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
                         <i class="bi bi-whatsapp fs-4 me-2"></i> Simular agora no WhatsApp
                     </a>
                 </div>
@@ -419,7 +576,8 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="display-6 fw-bold text-dark mb-4">O Novo Consignado Privado para Trabalhadores CLT</h2>
-                <p class="fs-5 text-muted px-md-5 mx-md-5">Tem carteira assinada? O crédito mais barato do Brasil agora está disponível de forma 100% digital, sem burocracia com os Recursos Humanos da sua empresa.</p>
+                <p class="fs-5 text-muted px-md-5 mx-md-5">Tem carteira assinada? O crédito mais barato do Brasil agora
+                    está disponível de forma 100% digital, sem burocracia com os Recursos Humanos da sua empresa.</p>
             </div>
             <div class="row justify-content-center px-2 px-md-0 g-4">
                 <div class="col-md-6 col-lg-3">
@@ -427,7 +585,9 @@
                         <div class="card-body pb-4">
                             <i class="bi bi-wallet2 text-clt icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Margem de 35%</h5>
-                            <p class="card-text text-secondary small">O desconto é efetuado <strong>diretamente na folha de pagamento</strong>, garantindo juros muito menores que os empréstimos pessoais comuns. O limite é de 35% do seu salário líquido.</p>
+                            <p class="card-text text-secondary small">O desconto é efetuado <strong>diretamente na folha
+                                    de pagamento</strong>, garantindo juros muito menores que os empréstimos pessoais
+                                comuns. O limite é de 35% do seu salário líquido.</p>
                         </div>
                     </div>
                 </div>
@@ -436,17 +596,22 @@
                         <div class="card-body pb-4">
                             <i class="bi bi-calendar-range text-clt icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Prazos Flexíveis</h5>
-                            <p class="card-text text-secondary small">Ganhe fôlego financeiro a pagar em até <strong>96 parcelas</strong> (empresas privadas) ou até incríveis <strong>144 meses</strong> caso seja funcionário de empresas públicas elegíveis.</p>
+                            <p class="card-text text-secondary small">Ganhe fôlego financeiro a pagar em até <strong>96
+                                    parcelas</strong> (empresas privadas) ou até incríveis <strong>144 meses</strong>
+                                caso seja funcionário de empresas públicas elegíveis.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="card card-alta-conversao shadow-lg h-100 px-3 py-4 text-center border-0">
-                        <span class="badge rounded-pill bg-success badge-alerta shadow-sm"><i class="bi bi-phone-vibrate me-1"></i> SEM RH</span>
+                        <span class="badge rounded-pill bg-success badge-alerta shadow-sm"><i
+                                class="bi bi-phone-vibrate me-1"></i> SEM RH</span>
                         <div class="card-body pb-4">
                             <i class="bi bi-phone text-clt icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Contratação Digital</h5>
-                            <p class="card-text text-secondary small">O processo foi modernizado. Toda a averbação e autorização é feita diretamente via aplicação da <strong>CTPS Digital (Carteira de Trabalho)</strong>, garantindo total privacidade.</p>
+                            <p class="card-text text-secondary small">O processo foi modernizado. Toda a averbação e
+                                autorização é feita diretamente via aplicação da <strong>CTPS Digital (Carteira de
+                                    Trabalho)</strong>, garantindo total privacidade.</p>
                         </div>
                     </div>
                 </div>
@@ -455,15 +620,19 @@
                         <div class="card-body pb-4">
                             <i class="bi bi-briefcase text-clt icon-gatilho"></i>
                             <h5 class="card-title fw-bold text-dark mb-3">Rescisão Segura</h5>
-                            <p class="card-text text-secondary small">Foi despedido? Fique descansado. O saldo devedor pode ser <strong>redirecionado automaticamente</strong> para o novo emprego ou descontado do limite de 40% das verbas rescisórias.</p>
+                            <p class="card-text text-secondary small">Foi despedido? Fique descansado. O saldo devedor
+                                pode ser <strong>redirecionado automaticamente</strong> para o novo emprego ou
+                                descontado do limite de 40% das verbas rescisórias.</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row mt-5 text-center">
-                <p class="small text-muted mb-3"><i class="bi bi-shield-lock-fill text-success me-1"></i> Atendimento 100% seguro. Sujeito a análise de margem.</p>
+                <p class="small text-muted mb-3"><i class="bi bi-shield-lock-fill text-success me-1"></i> Atendimento
+                    100% seguro. Sujeito a análise de margem.</p>
                 <div class="col-12 d-flex justify-content-center">
-                    <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                    <a href="https://wa.me/5521992279948" target="_blank"
+                        class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
                         <i class="bi bi-whatsapp fs-4 me-2"></i> Simular agora no WhatsApp
                     </a>
                 </div>
@@ -474,8 +643,10 @@
     <section class="bg-white w-100" id="credito-pessoal">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-6 fw-bold text-dark mb-4">Crédito Pessoal: Dinheiro na mão para usar como você quiser</h2>
-                <p class="fs-5 text-muted px-md-5 mx-md-5">Livre de burocracias. Perfeito para quitar dívidas urgentes, reformar a casa, investir nos seus projetos ou lidar com imprevistos financeiros com rapidez.</p>
+                <h2 class="display-6 fw-bold text-dark mb-4">Crédito Pessoal: Dinheiro na mão para usar como você quiser
+                </h2>
+                <p class="fs-5 text-muted px-md-5 mx-md-5">Livre de burocracias. Perfeito para quitar dívidas urgentes,
+                    reformar a casa, investir nos seus projetos ou lidar com imprevistos financeiros com rapidez.</p>
             </div>
             <div class="row justify-content-center px-2 px-md-0 g-4">
                 <div class="col-md-4 mb-4">
@@ -483,35 +654,45 @@
                         <div class="card-body pb-4">
                             <i class="bi bi-cash-stack text-pessoal icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">Livre Utilização</h4>
-                            <p class="card-text text-secondary">Você não precisa justificar o uso. O dinheiro cai na sua conta e é seu para usar exatamente como e onde precisar, devolvendo o seu controle financeiro.</p>
+                            <p class="card-text text-secondary">Você não precisa justificar o uso. O dinheiro cai na sua
+                                conta e é seu para usar exatamente como e onde precisar, devolvendo o seu controle
+                                financeiro.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card card-alta-conversao shadow-lg h-100 px-3 py-4 text-center border-0">
-                        <span class="badge rounded-pill bg-success badge-alerta shadow-sm"><i class="bi bi-clock-fill me-1"></i> TEMPO RECORDE</span>
+                        <span class="badge rounded-pill bg-success badge-alerta shadow-sm"><i
+                                class="bi bi-clock-fill me-1"></i> TEMPO RECORDE</span>
                         <div class="card-body pb-4">
                             <i class="bi bi-check-circle text-pessoal icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">Aprovação Rápida</h4>
-                            <p class="card-text text-secondary">Análise inteligente e ágil do seu perfil. Após a aprovação da proposta, o crédito é liberado com agilidade para solucionar o seu problema sem esperas.</p>
+                            <p class="card-text text-secondary">Análise inteligente e ágil do seu perfil. Após a
+                                aprovação da proposta, o crédito é liberado com agilidade para solucionar o seu problema
+                                sem esperas.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card card-alta-conversao shadow-lg h-100 px-3 py-4 text-center border-0">
-                        <span class="badge rounded-pill bg-danger badge-alerta shadow-sm"><i class="bi bi-shield-fill-exclamation me-1"></i> SEM TAXA ANTECIPADA</span>
+                        <span class="badge rounded-pill bg-danger badge-alerta shadow-sm"><i
+                                class="bi bi-shield-fill-exclamation me-1"></i> SEM TAXA ANTECIPADA</span>
                         <div class="card-body pb-4">
                             <i class="bi bi-shield-check text-pessoal icon-gatilho"></i>
                             <h4 class="card-title fw-bold text-dark mb-3">100% Digital e Seguro</h4>
-                            <p class="card-text text-secondary">Processo protegido e transparente. O nosso maior compromisso de confiança: <strong>NÃO cobramos qualquer taxa antecipada</strong> para a liberação do seu crédito.</p>
+                            <p class="card-text text-secondary">Processo protegido e transparente. O nosso maior
+                                compromisso de confiança: <strong>NÃO cobramos qualquer taxa antecipada</strong> para a
+                                liberação do seu crédito.</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row mt-5 text-center">
-                <p class="small text-muted mb-3"><i class="bi bi-shield-lock-fill text-success me-1"></i> Atendimento 100% seguro. Sujeito a análise de margem.</p>
+                <p class="small text-muted mb-3"><i class="bi bi-shield-lock-fill text-success me-1"></i> Atendimento
+                    100% seguro. Sujeito a análise de margem.</p>
                 <div class="col-12 d-flex justify-content-center">
-                    <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                    <a href="https://wa.me/5521992279948" target="_blank"
+                        class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
                         <i class="bi bi-whatsapp fs-4 me-2"></i> Simular agora no WhatsApp
                     </a>
                 </div>
@@ -523,11 +704,15 @@
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col-lg-8 mx-auto">
-                    <div class="mb-4"><i class="bi bi-person-check-fill text-primary" style="font-size: 5rem;"></i></div>
+                    <div class="mb-4"><i class="bi bi-person-check-fill text-primary" style="font-size: 5rem;"></i>
+                    </div>
                     <h2 class="display-5 fw-bold mb-4">Solange Ladeira dos Santos</h2>
-                    <p class="fs-4 text-secondary mb-5">Especialista da <strong>Poder Financeiro</strong>. A nossa missão é devolver a liberdade financeira às famílias brasileiras com um processo 100% digital e seguro.</p>
+                    <p class="fs-4 text-secondary mb-5">Especialista da <strong>Poder Financeiro</strong>. A nossa
+                        missão é devolver a liberdade financeira às famílias brasileiras com um processo 100% digital e
+                        seguro.</p>
                     <div class="d-flex justify-content-center">
-                        <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                        <a href="https://wa.me/5521992279948" target="_blank"
+                            class="btn btn-success btn-lg rounded-pill shadow-lg mb-5 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
                             <i class="bi bi-whatsapp fs-4 me-2"></i> Falar com a Solange
                         </a>
                     </div>
@@ -536,15 +721,19 @@
         </div>
     </section>
 
-    <footer class="bg-dark text-light w-100 py-5" style="border-top: 4px solid var(--accent-gold); flex-direction: column;">
+    <footer class="bg-dark text-light w-100 py-5"
+        style="border-top: 4px solid var(--accent-gold); flex-direction: column;">
         <div class="container w-100 pt-3">
             <div class="row g-5 mb-5">
                 <div class="col-md-4 text-center text-md-start">
-                    <span class="fw-bold fs-3 d-flex align-items-center justify-content-center justify-content-md-start mb-3">
-                        <i class="bi bi-shield-lock-fill text-warning me-2"></i> Poder <span class="text-warning ms-1">Financeiro</span>
+                    <span
+                        class="fw-bold fs-3 d-flex align-items-center justify-content-center justify-content-md-start mb-3">
+                        <i class="bi bi-shield-lock-fill text-warning me-2"></i> Poder <span
+                            class="text-warning ms-1">Financeiro</span>
                     </span>
                     <p class="small text-secondary mb-3">Solange Ladeira dos Santos<br>CNPJ: 00.000.000/0001-00</p>
-                    <div class="badge bg-success bg-opacity-25 border border-success text-success p-2 fs-6 mb-2 shadow-sm">
+                    <div
+                        class="badge bg-success bg-opacity-25 border border-success text-success p-2 fs-6 mb-2 shadow-sm">
                         <i class="bi bi-patch-check-fill me-1"></i> Consultora Autorizada
                     </div>
                     <p class="small fst-italic text-secondary mt-2">"Afiada como uma tachinha"</p>
@@ -552,27 +741,39 @@
                 <div class="col-md-4 text-center text-md-start">
                     <h5 class="fw-bold text-white mb-4">Soluções Rápidas</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-3"><a href="#motivos-acao" class="text-secondary text-decoration-none hover-white"><i class="bi bi-chevron-right small text-warning me-1"></i> Antecipação FGTS</a></li>
-                        <li class="mb-3"><a href="#consignado-inss" class="text-secondary text-decoration-none hover-white"><i class="bi bi-chevron-right small text-warning me-1"></i> Consignado INSS</a></li>
-                        <li class="mb-3"><a href="#consignado-clt" class="text-secondary text-decoration-none hover-white"><i class="bi bi-chevron-right small text-warning me-1"></i> Consignado CLT</a></li>
-                        <li class="mb-3"><a href="#credito-pessoal" class="text-secondary text-decoration-none hover-white"><i class="bi bi-chevron-right small text-warning me-1"></i> Crédito Pessoal</a></li>
+                        <li class="mb-3"><a href="#motivos-acao"
+                                class="text-secondary text-decoration-none hover-white"><i
+                                    class="bi bi-chevron-right small text-warning me-1"></i> Antecipação FGTS</a></li>
+                        <li class="mb-3"><a href="#consignado-inss"
+                                class="text-secondary text-decoration-none hover-white"><i
+                                    class="bi bi-chevron-right small text-warning me-1"></i> Consignado INSS</a></li>
+                        <li class="mb-3"><a href="#consignado-clt"
+                                class="text-secondary text-decoration-none hover-white"><i
+                                    class="bi bi-chevron-right small text-warning me-1"></i> Consignado CLT</a></li>
+                        <li class="mb-3"><a href="#credito-pessoal"
+                                class="text-secondary text-decoration-none hover-white"><i
+                                    class="bi bi-chevron-right small text-warning me-1"></i> Crédito Pessoal</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 text-center text-md-start">
                     <h5 class="fw-bold text-white mb-4">Transparência Total</h5>
                     <div class="alert alert-dark border-danger bg-transparent text-light p-3 small mb-3">
                         <i class="bi bi-exclamation-triangle-fill text-danger fs-5 d-block mb-2"></i>
-                        <strong class="text-danger">CUIDADO COM GOLPES:</strong><br> Não cobramos nenhum tipo de taxa antecipada para liberação de crédito.
+                        <strong class="text-danger">CUIDADO COM GOLPES:</strong><br> Não cobramos nenhum tipo de taxa
+                        antecipada para liberação de crédito.
                     </div>
-                    <p class="small text-secondary mb-0"><i class="bi bi-info-circle me-1"></i> Operação em estrita conformidade com a Resolução CCFGTS nº 1.130/2025.</p>
+                    <p class="small text-secondary mb-0"><i class="bi bi-info-circle me-1"></i> Operação em estrita
+                        conformidade com a Resolução CCFGTS nº 1.130/2025.</p>
                 </div>
             </div>
             <hr class="border-secondary mb-5 opacity-25">
             <div class="row text-center align-items-center">
                 <div class="col-12">
-                    <h3 class="fw-bold text-white mb-4 h4">Ainda com dúvidas? Garanta seu respiro financeiro agora antes que as regras mudem em 2026.</h3>
+                    <h3 class="fw-bold text-white mb-4 h4">Ainda com dúvidas? Garanta seu respiro financeiro agora antes
+                        que as regras mudem em 2026.</h3>
                     <div class="d-flex justify-content-center">
-                        <a href="https://wa.me/5521992279948" target="_blank" class="btn btn-success btn-lg rounded-pill shadow-lg mt-2 mb-4 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                        <a href="https://wa.me/5521992279948" target="_blank"
+                            class="btn btn-success btn-lg rounded-pill shadow-lg mt-2 mb-4 px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
                             <i class="bi bi-whatsapp fs-4 me-2"></i> Falar com a Solange Agora
                         </a>
                     </div>
@@ -580,14 +781,17 @@
             </div>
             <div class="row mt-4">
                 <div class="col-12 text-center">
-                    <a href="#" class="text-secondary fs-4 me-3 text-decoration-none hover-white"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-secondary fs-4 text-decoration-none hover-white"><i class="bi bi-facebook"></i></a>
-                    <p class="small text-secondary mt-4 mb-0">&copy; 2026 Poder Financeiro. Todos os direitos reservados.</p>
+                    <a href="#" class="text-secondary fs-4 me-3 text-decoration-none hover-white"><i
+                            class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-secondary fs-4 text-decoration-none hover-white"><i
+                            class="bi bi-facebook"></i></a>
+                    <p class="small text-secondary mt-4 mb-0">&copy; 2026 Poder Financeiro. Todos os direitos
+                        reservados.</p>
                 </div>
             </div>
         </div>
     </footer>
-    
+
     <audio id="musicaFundo" src="./assets/A_Chave_do_Respiro.mp3" preload="auto"></audio>
 
     <a href="https://wa.me/5521992279948" target="_blank" class="whatsapp-float shadow-lg">
@@ -599,10 +803,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const audio = document.getElementById('musicaFundo');
-            const btnAudio = document.getElementById('btnAudio');
+            const btnAudio = document.querySelector('[data-audio-trigger="main"]');
             const iconeAudio = document.getElementById('iconeAudio');
 
-            audio.loop = false;
+            if (!audio || !btnAudio) return;
 
             function atualizarIcone() {
                 const classesBase = 'fs-6 fs-lg-5 mb-0';
@@ -615,39 +819,31 @@
                 }
             }
 
+            // GATILHO ISOLADO: Somente o clique no botão de áudio executa esta lógica
             btnAudio.addEventListener('click', function (e) {
-                e.stopPropagation(); 
-                if (audio.ended) {
-                    audio.currentTime = 0; 
-                    audio.play();
-                } else if (audio.paused) {
-                    audio.play();
+                e.preventDefault();
+                e.stopPropagation(); // Impede que o clique dispare eventos no body ou navbar
+
+                if (audio.paused || audio.ended) {
+                    if (audio.ended) audio.currentTime = 0;
+                    audio.play().catch(err => console.log("Interação requerida"));
                 } else {
                     audio.pause();
                 }
                 atualizarIcone();
             });
 
-            audio.addEventListener('ended', function() {
-                atualizarIcone();
-            });
+            audio.addEventListener('ended', atualizarIcone);
 
-            document.body.addEventListener('click', () => {
-                if (audio.paused && !localStorage.getItem('musicaTocou') && !audio.ended) {
-                    audio.play();
-                    localStorage.setItem('musicaTocou', 'true');
-                    atualizarIcone();
-                }
-            }, { once: true }); 
-            
+            // GESTÃO DE NAVBAR: Fecha o menu mobile ao clicar em um link sem disparar áudio
             const navLinks = document.querySelectorAll('.nav-link');
             const menuToggle = document.getElementById('navbarMenu');
-            if(menuToggle) {
-                const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
+            if (menuToggle) {
+                const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
                 navLinks.forEach((l) => {
                     l.addEventListener('click', () => {
-                        if(menuToggle.classList.contains('show')) {
-                            bsCollapse.toggle();
+                        if (menuToggle.classList.contains('show')) {
+                            bsCollapse.hide();
                         }
                     });
                 });
